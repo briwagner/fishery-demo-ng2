@@ -1,0 +1,17 @@
+nav {
+    background-color: black;
+    padding: 15px 0;
+}
+
+nav ul {
+    margin-left: 15%;
+}
+
+nav ul li a {
+    color: white;
+    font-weight: 700;
+}
+
+nav ul li a:hover {
+    color:darkblue;
+}
