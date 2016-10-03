@@ -1,0 +1,53 @@
+#sidebar-main {
+    height:720px;
+    overflow-y: hidden;
+}
+
+#sidebar-pics {
+    height:720px;
+    overflow-y: scroll;
+}
+
+.slide img {
+    width: 100%;
+    height:auto;
+}
+
+.slide-caption {
+    position:relative;
+    top:-140px;
+    height:140px;
+    padding: 5px 15px;
+    background-color: rgba(0,0,200,0.5);
+    color: white;
+}
+
+.slide-date, .slide-credit {
+    font-size: 75%;
+    font-style: italic;
+}
+
+.sidebar .list-group-item {
+    padding: 0;
+    border:none;
+}
+
+.sidebar h4 {
+    background-color:navy;
+    color:white;
+    margin: 0;
+    padding:20px 10px;
+}
+
+img.sidebar-pic {
+    width:100%;
+    height: auto;
+}
+
+.sidebar ul li span {
+    display:block;
+    font-weight: 800;
+    background: linear-gradient(to top, aqua, 80%, #00ace6);
+    border-top:3px solid navy;
+    padding:5px 10px;
+}
