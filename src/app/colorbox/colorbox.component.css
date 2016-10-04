@@ -1,10 +1,10 @@
 #sidebar-main {
-    height:720px;
+    height:600px;
     overflow-y: hidden;
 }
 
 #sidebar-pics {
-    height:720px;
+    height:600px;
     overflow-y: scroll;
 }
 
