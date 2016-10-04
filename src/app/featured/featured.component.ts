@@ -29,6 +29,11 @@ export class FeaturedComponent implements OnInit {
     this.articleMax += 4;
   }
 
+  clearFilter() {
+    this.filteringFor = '';
+    this.articleMax = 4;
+  }
+
   filterFor(topic) {
     this.filteringFor = topic;
   }

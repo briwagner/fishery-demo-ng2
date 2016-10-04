@@ -23,7 +23,7 @@
       <div class="btn-group btn-group-xs">
         <h5>Filter by Topic</h5>
         <button *ngFor="let t of topics" (click)="filterFor(t)" class="btn btn-info">{{t}}</button>
-        <button type="button" (click)="filterFor('')" class="btn btn-default btn-warning">Clear</button>
+        <button type="button" (click)="clearFilter()" class="btn btn-default btn-warning">Clear</button>
       </div>
     </div>
 
