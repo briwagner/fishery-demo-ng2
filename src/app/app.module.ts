@@ -7,13 +7,19 @@ import { AppComponent } from './main-app/app.component';
 import { HeaderComponent } from './header/header.component';
 import { ColorboxComponent } from './colorbox/colorbox.component';
 import { FeaturedComponent } from './featured/featured.component';
+import { FooterComponent } from './footer/footer.component';
+import { FilterPipePipe } from './shared/filter-pipe.pipe';
+import { FilterTopicPipe } from './shared/filter-topic.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     ColorboxComponent,
-    FeaturedComponent
+    FeaturedComponent,
+    FooterComponent,
+    FilterPipePipe,
+    FilterTopicPipe
   ],
   imports: [
     BrowserModule,

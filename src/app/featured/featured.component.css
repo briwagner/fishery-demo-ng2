@@ -1,0 +1,39 @@
+div.feature {
+    /*border:1px solid navy;
+    border-radius: 15px;*/
+    margin:25px 0;
+    padding: 15px;
+}
+
+h2 {
+    color: #999;
+}
+
+.article {
+    padding:5px 25px 5px 15px;
+    height:330px;
+    margin-bottom: 20px;
+}
+
+.article img {
+    float:left;
+    height:120px;
+    width: auto;
+    margin: 0 15px 15px 0;
+}
+
+.topic-btn {
+    display:block;
+    margin-top:15px;
+}
+
+.spacer {
+    height: 10px;
+    clear:both;
+}
+
+/*.topic-pills ul li {
+    border: 0;
+    background-color: #efefef;
+    padding:10px 5px;
+}*/

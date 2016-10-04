@@ -1,3 +1,25 @@
-<p>
-  featured works!
-</p>
+<div class="col-md-8 col-md-offset-2">
+    
+  <div class="feature">
+    <h2 class="text-center">Featured News</h2>
+
+    <div *ngFor="let article of articles | filterTopic:filteringFor" class="article col-md-6">
+      <h4>{{article.title}}</h4>
+      <img src="/assets/{{article.pic}}" alt="{{article.title}}">
+      <p>{{article.body | slice:0:240 }} ...</p>
+      <i>Published: {{article.date}}</i>
+      <button type="button" class="btn btn-default topic-btn" (click)='filterFor(article.topic)'>{{article.topic}}</button>
+    </div>
+
+    <div class="topic-pills col-md-12">
+      <div class="btn-group btn-group-xs">
+        <h5>Filter by Topic</h5>
+        <button *ngFor="let t of topics" (click)="filterFor(t)" class="btn btn-info">{{t}}</button>
+        <button type="button" (click)="filterFor('')" class="btn btn-default btn-warning">Clear</button>
+      </div>
+    </div>
+
+    <div class="spacer row"> </div>
+  </div>
+
+</div>
