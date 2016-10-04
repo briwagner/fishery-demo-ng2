@@ -9,6 +9,10 @@ import { ColorboxComponent } from './colorbox/colorbox.component';
 import { FeaturedComponent } from './featured/featured.component';
 import { FooterComponent } from './footer/footer.component';
 import { FilterTopicPipe } from './shared/filter-topic.pipe';
+import { SalmonReportComponent } from './salmon-report/salmon-report.component';
+import { SplitUnderscorePipe } from './shared/split-underscore.pipe';
+import { FilterColumnsPipe } from './shared/filter-columns.pipe';
+import { FilterSalmonPipe } from './shared/filter-salmon.pipe';
 
 @NgModule({
   declarations: [
@@ -17,7 +21,11 @@ import { FilterTopicPipe } from './shared/filter-topic.pipe';
     ColorboxComponent,
     FeaturedComponent,
     FooterComponent,
-    FilterTopicPipe
+    FilterTopicPipe,
+    SalmonReportComponent,
+    SplitUnderscorePipe,
+    FilterColumnsPipe,
+    FilterSalmonPipe
   ],
   imports: [
     BrowserModule,

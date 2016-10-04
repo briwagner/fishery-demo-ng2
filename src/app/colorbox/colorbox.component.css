@@ -15,8 +15,8 @@
 
 .slide-caption {
     position:relative;
-    top:-140px;
-    height:140px;
+    top:-160px;
+    height:160px;
     padding: 5px 15px;
     background-color: rgba(0,0,200,0.5);
     color: white;
@@ -47,7 +47,7 @@ img.sidebar-pic {
 .sidebar ul li span {
     display:block;
     font-weight: 800;
-    background: linear-gradient(to top, aqua, 80%, #00ace6);
+    background: linear-gradient(aqua, 90%, rgba(0,70,230,0.7));
     border-top:3px solid navy;
     padding:5px 10px;
 }

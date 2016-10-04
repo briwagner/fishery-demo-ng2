@@ -1,0 +1,24 @@
+<div class="row">
+  <div id="salmon-report" class="col-md-6 col-md-offset-3">
+    <h4 class="text-center">In-Season Salmon Reports</h4>
+    <div class="row salmon-filters">
+      <input type="text" [(ngModel)]="salmon_filtering" placeholder="filter, i.e. CHNK">
+      <button type="button" (click)="salmon_filtering = ''" class="btn btn-default btn-xs">Clear</button>
+    </div>
+    <div class="row">
+      <span id="filter-display"><p>Filtered by: {{salmon_filtering | uppercase}}</p> </span>
+    </div>
+    <table id="salmon-table">
+      <tr>
+        <td *ngFor="let col of salmon.table.columnNames | filterColumns:tableColumns" class="header">{{col.name | splitUnderscore }}</td>
+      </tr>
+      <tr *ngFor="let row of salmon.table.rows | filterSalmon:salmon_filtering">
+        <td>{{row.season_year}}</td>
+        <td>{{row.pacfin_code || row.common_name}}</td>
+        <td>{{row.report_category}}</td>
+        <td>{{row.wcgop_discard_count_est}}</td>
+        <td>{{row.wcgop_discard_pounds_est}}</td>
+      </tr>
+    </table>
+  </div>
+</div>

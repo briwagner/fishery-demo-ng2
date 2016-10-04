@@ -7,9 +7,19 @@ nav ul {
     margin-left: 15%;
 }
 
+nav img {
+    height: 80px;
+}
+
 nav ul li a {
     color: white;
     font-weight: 700;
+    margin-top:20px;
+}
+
+nav ul li input {
+    margin-top: 22px;
+    margin-left:25px;
 }
 
 nav ul li a:hover {

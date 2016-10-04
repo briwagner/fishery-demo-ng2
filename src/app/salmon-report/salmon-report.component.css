@@ -1,0 +1,43 @@
+#salmon-report {
+    border: 1px solid navy;
+    border-radius: 5px;
+    padding:15px 20px;
+    margin-bottom: 25px;
+}
+
+table {
+    border: 2px solid #999;
+    font-size: 75%;
+    width:100%;
+}
+
+table td {
+    text-align: center;
+}
+
+table td.header {
+    text-transform: capitalize;
+    background: #efefef;
+    padding:7px 0;
+    border-bottom: 2px solid #999;
+}
+
+#salmon-report {
+    height: 240px;
+    overflow-y: scroll;
+}
+
+#salmon-report input {
+    /*position: relative;
+    left: 42%;*/
+    margin-bottom: 12px;
+}
+
+#filter-display {
+    display:block;
+    padding-left: 20px;
+}
+
+.salmon-filters {
+    padding-left:40%;
+}

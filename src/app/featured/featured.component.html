@@ -3,7 +3,7 @@
   <div class="feature">
     <h2 class="text-center">Featured News</h2>
 
-    <div *ngFor="let article of articles | filterTopic:filteringFor" class="article col-md-6">
+    <div *ngFor="let article of articles | filterTopic:filteringFor | slice:0:4" class="article col-md-6">
       <h4>{{article.title}}</h4>
       <img src="/assets/{{article.pic}}" alt="{{article.title}}">
       <p>{{article.body | slice:0:240 }} ...</p>
@@ -24,6 +24,7 @@
     </div>
 
     <div class="spacer row"> </div>
+    
   </div>
 
 </div>
