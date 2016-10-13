@@ -4,4 +4,6 @@
         "**/.git": true,
         "**/.DS_Store": true
     }
+,
+"typescript.check.workspaceVersion": false
 }

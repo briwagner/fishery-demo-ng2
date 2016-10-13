@@ -11,18 +11,17 @@
       <button type="button" class="btn btn-default topic-btn" (click)='filterFor(article.topic)'>{{article.topic}}</button>
     </div>
 
-    <div *ngIf="(articles | filterTopic:filteringFor).length > articleMax" class="col-md-12 center-block">
-      <button type="button" (click)="getMoreArticles()" class="btn btn-primary btn-sm center-block">More</button>
-    </div>
+<!--doesn't work heere-->
+<!--(articles | filterTopic:filteringFor).length === 0-->
 
-    <div *ngIf="(articles | filterTopic:filteringFor).length === 0" class="col-md-12">
+    <div [hidden]="noArticles" class="col-md-12">
       <h4 class="text-center">No articles found for that topic.</h4>
     </div>
 
     <div class="topic-pills col-md-12">
       <div class="btn-group btn-group-xs">
         <h5>Filter by Topic</h5>
-        <button *ngFor="let t of topics" (click)="filterFor(t)" class="btn btn-info">{{t}}</button>
+        <button *ngFor="let t of topics" (click)="filterFor(t.name)" class="btn btn-info">{{t.name}}</button>
         <button type="button" (click)="clearFilter()" class="btn btn-default btn-warning">Clear</button>
       </div>
     </div>

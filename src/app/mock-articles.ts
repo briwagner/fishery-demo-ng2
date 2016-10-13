@@ -1,6 +1,8 @@
+import { Article } from './models/article';
+
 export const ARTICLES = [
-    {
-        title: "Bycatch Reduction Engineering Program - 2016 Awards",
+  {
+        title: "Bycatch Reduction Engineering Program - 2015 Awards",
         date: "August 31, 2016",
         pic: "bycatch.jpg",
         topic: "Sustainable Fisheries",
@@ -104,4 +106,4 @@ NOAA personnel: Amber Rhodes, WCR NOAA Fisheries, Fisheries Policy Analyst, Aman
 Visit the Cabrillo Marine Aquarium's and Friends website
 `
     }
-];
+] ;

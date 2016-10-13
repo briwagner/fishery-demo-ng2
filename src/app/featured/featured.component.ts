@@ -1,16 +1,14 @@
 import { Component, OnInit } from '@angular/core';
-import { ARTICLES } from './articles';
+
+import { ArticlesService } from '../services/articles.service';
+import { Article } from '../models/article';
+import { TopicsService } from '../services/topics.service';
+import { Topic } from '../models/topic';
+
 import { FilterTopicPipe } from '../shared/filter-topic.pipe';
 
-const TOPICS = [
-  "Sustainable Fisheries",
-  "Protected Resources",
-  "Habitat Conservation",
-  "International Affairs",
-  "Science and Technology",
-  "Aquaculture",
-  "Seafood Inspection"
-];
+// for static mock data only
+import { ARTICLES } from '../mock-articles';
 
 @Component({
   selector: 'app-featured',
@@ -20,8 +18,13 @@ const TOPICS = [
 
 export class FeaturedComponent implements OnInit {
 
-  topics = TOPICS;
-  articles = ARTICLES;
+  constructor(
+    private articlesService: ArticlesService,
+    private topicsService: TopicsService 
+    ) {}
+
+  topics: Topic[];
+  articles: Article[];
   filteringFor = '';
   articleMax = 4;
 
@@ -38,9 +41,18 @@ export class FeaturedComponent implements OnInit {
     this.filteringFor = topic;
   }
 
-  constructor() { }
+  noArticles() {
+    if (this.articles !== undefined  && this.articles.length > 0){
+      return true
+    }
+  }
 
-  ngOnInit() {
+  ngOnInit():void {
+    this.articlesService.getArticles()
+                        .then(articles => this.articles = articles);
+
+    this.topicsService.getTopics()
+                      .then(topics => this.topics = topics);
   }
 
 }
