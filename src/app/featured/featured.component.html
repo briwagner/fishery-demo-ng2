@@ -3,9 +3,13 @@
   <div class="feature">
     <h2>Fisheries News</h2>
 
+    <div class="col-md-12" [hidden]="!filteringFor">
+      <button class="btn btn-xs btn-warning" (click)="clearFilter()">Clear filter</button>
+    </div>
+
     <div *ngFor="let article of articles | filterTopic:filteringFor | slice:0:articleMax" class="article col-md-6">
       <img src="/assets/{{article.pic}}" alt="{{article.title}}">
-      <div class="topic-badge">{{article.topic}}</div>
+      <div class="topic-badge" (click)="filterFor(article.topic)">{{article.topic}}</div>
 
       <!--<button type="button" class="btn btn-default topic-btn" (click)='filterFor(article.topic)'>{{article.topic}}</button>-->
       
@@ -27,13 +31,13 @@
       <h4 class="text-center">No articles found for that topic.</h4>
     </div>
 
-    <div class="topic-pills col-md-12">
+    <!--<div class="topic-pills col-md-12">
       <div class="btn-group btn-group-xs">
         <h5>Filter by Topic</h5>
         <button *ngFor="let t of topics" (click)="filterFor(t.name)" class="btn btn-info">{{t.name}}</button>
         <button type="button" (click)="clearFilter()" class="btn btn-default btn-warning">Clear</button>
       </div>
-    </div>
+    </div>-->
 
     <div class="spacer row"> </div>
     
