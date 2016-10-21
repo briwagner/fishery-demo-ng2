@@ -4,7 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
 // no routes yet. this is a custom service
-// import { AppRoutingModule } from './app-routing.module';
+import { FisheriesRoutingModule } from './app-routing.module';
 
 import { InMemoryWebApiModule } from 'angular-in-memory-web-api/in-memory-web-api.module';
 import { InMemoryDataService } from './in-memory-data.service';
@@ -29,6 +29,7 @@ import { FilterTopicPipe } from './shared/filter-topic.pipe';
 import { SplitUnderscorePipe } from './shared/split-underscore.pipe';
 import { FilterColumnsPipe } from './shared/filter-columns.pipe';
 import { FilterSalmonPipe } from './shared/filter-salmon.pipe';
+import { LandingComponent } from './landing/landing.component';
 
 @NgModule({
   declarations: [
@@ -37,13 +38,15 @@ import { FilterSalmonPipe } from './shared/filter-salmon.pipe';
     ColorboxComponent,
     FeaturedComponent,
     FooterComponent,
-    FilterTopicPipe,
+    LandingComponent,
     SalmonReportComponent,
+    FilterTopicPipe,
     SplitUnderscorePipe,
     FilterColumnsPipe,
-    FilterSalmonPipe
+    FilterSalmonPipe,
   ],
   imports: [
+    FisheriesRoutingModule,
     BrowserModule,
     FormsModule,
     HttpModule,
