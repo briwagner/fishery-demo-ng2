@@ -18,18 +18,21 @@ import { ARTICLES } from '../mock-articles';
 
 export class FeaturedComponent implements OnInit {
 
-  constructor(
-    private articlesService: ArticlesService,
-    private topicsService: TopicsService 
-    ) {}
-
   topics: Topic[];
   articles: Article[];
   filteringFor = '';
   articleMax = 4;
 
+  constructor(
+    private articlesService: ArticlesService,
+    private topicsService: TopicsService 
+    ) {}
+
   getMoreArticles() {
     this.articleMax += 4;
+    // console.log(this.articleMax, 'max #');
+    // console.log(this.articles.length, 'length');
+    // console.log(this.maxArticles(), 'boolean');
   }
 
   clearFilter() {
@@ -47,12 +50,31 @@ export class FeaturedComponent implements OnInit {
     }
   }
 
+  hideMoreButton() {
+    return true
+  }
+
+  maxArticles() {
+    if (this.articles !== undefined && this.articles.length > this.articleMax) {
+      return true
+    }
+    return false
+  }
+
   ngOnInit():void {
     this.articlesService.getArticles()
-                        .then(articles => this.articles = articles);
+                        .subscribe(
+                          p => this.articles = p,
+                          e => console.log('failed articles', e),
+                          // () => console.log('completed articles')
+                          );
 
     this.topicsService.getTopics()
-                      .then(topics => this.topics = topics);
+                      .subscribe(
+                        p => this.topics = p,
+                        e => console.log('failed topics', e),
+                        // () => console.log('completed topics')
+                      );
   }
 
 }

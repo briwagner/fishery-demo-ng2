@@ -1,19 +1,25 @@
 <div id="slides-container" class="row" [hidden]="!selectedSlide">
   
-  <div id="sidebar-main" class="col-md-10 col-sm-8" *ngIf="selectedSlide">
+  <div id="sidebar-main" class="col-md-10 col-sm-8 col-md-offset-1 col-sm-offset-2" *ngIf="selectedSlide">
     <div class="slide row">
       <img src="/assets/{{selectedSlide.pic}}" alt="{{selectedSlide.title}}">
     </div>
-    <div id='caption' class="slide-caption row">
-      <h4 class="slide-title">{{selectedSlide.title}}</h4>
+    <div id='caption' class="slide-caption col-md-8 col-md-offset-2 text-center">
+
+      <h1>Welcome to NOAA Fisheries</h1>
+      <p>Protecting marine resources and providing sustainable fisheries through sound science and an ecosystem-based approach to management.</p>
+      <p><a href="{{selectedSlide.title}}">More about this picture</a></p>
+
+      <!--<h4 class="slide-title">{{selectedSlide.title}}</h4>
       <p class="slide-description">{{selectedSlide.description | slice:0:280}} 
         <span [hidden]="selectedSlide.description.length < 280">...</span></p>
       <p class="slide-date">{{selectedSlide.date}}</p>
-      <p class="slide-credit">{{selectedSlide.credit}}</p>
+      <p class="slide-credit">{{selectedSlide.credit}}</p>-->
+      
     </div>
   </div>
 
-  <div id="sidebar-pics" class="col-md-2 col-sm-4">
+  <!--<div id="sidebar-pics" class="col-md-2 col-sm-4">
     <div class="sidebar row">
       <h4 class="text-center">Featured Pictures</h4>
       <ul class="list-group">
@@ -23,6 +29,6 @@
         </li>
       </ul>
     </div>
-  </div>
+  </div>-->
 
 </div>

@@ -1,7 +1,7 @@
 <div class="col-md-8 col-md-offset-2">
     
   <div class="feature">
-    <h2 class="text-center">Featured News</h2>
+    <h2>Fisheries News</h2>
 
     <div *ngFor="let article of articles | filterTopic:filteringFor | slice:0:articleMax" class="article col-md-6">
       <h4>{{article.title}}</h4>
@@ -11,10 +11,14 @@
       <button type="button" class="btn btn-default topic-btn" (click)='filterFor(article.topic)'>{{article.topic}}</button>
     </div>
 
+    <div *ngIf="hideMoreButton()" class="col-md-12 center-block">
+      <button type="button" (click)="getMoreArticles()" class="btn btn-primary btn-sm center-block">More</button>
+    </div>
+
 <!--doesn't work heere-->
 <!--(articles | filterTopic:filteringFor).length === 0-->
 
-    <div [hidden]="noArticles" class="col-md-12">
+    <div [hidden]="noArticles()" class="col-md-12">
       <h4 class="text-center">No articles found for that topic.</h4>
     </div>
 

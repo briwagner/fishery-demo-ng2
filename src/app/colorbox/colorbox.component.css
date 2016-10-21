@@ -14,12 +14,30 @@
 }
 
 .slide-caption {
-    position:relative;
-    top:-160px;
-    height:160px;
-    padding: 5px 15px;
-    background-color: rgba(0,0,200,0.5);
+    background-color: black;
     color: white;
+    position:relative;
+    top:-210px;
+    height:210px;
+    border-radius: 5px 5px 0 0;
+    padding: 0 15px;
+}
+
+.slide-caption h1 {
+    padding-top: 0;
+}
+
+.slide-caption p {
+    font-size: 1.3em;
+    font-weight:100;
+    letter-spacing: 1.5px;
+}
+
+.slide-caption p a {
+    color: white;
+    font-size: 0.7em;
+    font-weight: initial;
+    letter-spacing: initial;
 }
 
 .slide-date, .slide-credit {

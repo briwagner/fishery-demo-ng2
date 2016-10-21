@@ -15,8 +15,9 @@ import { Topic } from '../models/topic';
 @Injectable()
 export class TopicsService {
 
-  private slideUrl = "app/topics";
-  private header = new Headers({'Content-Type': 'application/json'});
+  private topicUrl = "app/topics";
+  private topicsUrlES = "http://127.0.0.1:9200/topics/_search";
+  private headers = new Headers({'Content-Type': 'application/json'});
 
   constructor(private http: Http ) { }
 
@@ -27,10 +28,23 @@ export class TopicsService {
 
   // using real http service
   getTopics() {
-    return this.http.get(this.slideUrl)
-               .toPromise()
-               .then(response => response.json().data as Topic[])
-               .catch(this.handleError);
+    let topics = this.http.get(this.topicsUrlES, {headers: this.getHeaders()})
+                          .map(this.convertTopicData);
+              //  .toPromise()
+              //  .then(response => response.json().data.hits as Topic[])
+              //  .catch(this.handleError);
+    return topics;
+}
+
+  convertTopicData(response: Response): Topic[] {
+    // console.log(response.json())
+    return response.json().hits.hits.map(toTopic);
+  }
+
+  getHeaders() {
+    let headers = new Headers();
+    headers.append('Accept', 'application/json');
+    return headers;
   }
 
   private handleError(error: any): Promise<any> {
@@ -38,3 +52,10 @@ export class TopicsService {
     return Promise.reject(error.message || error);
   }
 }
+
+  function toTopic(d:any): Topic {
+    let topic = <Topic>({
+      name: d._source.name
+    })
+    return topic;
+  }

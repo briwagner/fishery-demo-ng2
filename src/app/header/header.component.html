@@ -1,8 +1,8 @@
 <div class="row">
   <nav>
     <ul class="nav nav-pills">
-      <li class="presentation"><img src="/assets/noaa-logo.png" alt="National Fisheries"></li>
-      <li class="presentation" *ngFor="let item of links"><a href="/{{item}}">{{item}}</a></li>
+      <li class="presentation"><a href="/" class="logo-link"><img src="/assets/noaa-logo.png" alt="National Fisheries"></a></li>
+      <li class="presentation" *ngFor="let item of links"><a href="/{{item.path}}">{{item.name}}</a></li>
       <li class="presentation"><input type="text" name="search" placeholder="Search" class="form-control"></li>
     </ul>
   </nav>

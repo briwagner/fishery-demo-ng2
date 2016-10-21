@@ -17,16 +17,12 @@ export class ColorboxComponent implements OnInit {
   selectedSlide;
 
   ngOnInit(): void {
-    // var httpcall = this.slidesService
-    //                    .getSlides()
-    //                    .subscribe(
-    //                      p => console.log(p),
-    //                      e => console.log(e),
-    //                      () => console.log('completed')
-    //                    );
-    // console.log(httpcall);
     this.slidesService.getSlides()
-                      .then(slides => this.assignSlides(slides));
+                      .subscribe(
+                        p => this.assignSlides(p),
+                        e => console.log(e),
+                        // () => console.log('completed slides')
+                      )
   }
 
   assignSlides(d) {
