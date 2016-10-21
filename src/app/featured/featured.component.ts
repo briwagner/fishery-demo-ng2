@@ -22,6 +22,7 @@ export class FeaturedComponent implements OnInit {
   articles: Article[];
   filteringFor = '';
   articleMax = 4;
+  moreArticlesToShow = false;
 
   constructor(
     private articlesService: ArticlesService,
@@ -30,9 +31,7 @@ export class FeaturedComponent implements OnInit {
 
   getMoreArticles() {
     this.articleMax += 4;
-    // console.log(this.articleMax, 'max #');
-    // console.log(this.articles.length, 'length');
-    // console.log(this.maxArticles(), 'boolean');
+    this.moreArticles();
   }
 
   clearFilter() {
@@ -66,7 +65,7 @@ export class FeaturedComponent implements OnInit {
                         .subscribe(
                           p => this.articles = p,
                           e => console.log('failed articles', e),
-                          // () => console.log('completed articles', this.articles)
+                          () => this.moreArticles()
                           );
 
     this.topicsService.getTopics()
@@ -75,6 +74,14 @@ export class FeaturedComponent implements OnInit {
                         e => console.log('failed topics', e),
                         // () => console.log('completed topics')
                       );
+  }
+
+  moreArticles() {
+    if (this.articles.length > this.articleMax) {
+      this.moreArticlesToShow = true;
+    } else {
+      this.moreArticlesToShow = false;
+    }
   }
 
 }
