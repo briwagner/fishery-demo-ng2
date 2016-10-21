@@ -11,15 +11,30 @@ h2 {
 
 .article {
     padding:5px 25px 5px 15px;
-    height:380px;
+    height:370px;
     margin-bottom: 10px;
 }
 
 .article img {
-    float:left;
-    height:120px;
-    width: auto;
-    margin: 0 15px 15px 0;
+    /*float:left;
+    height:120px;*/
+    /*margin: 0 15px 15px 0;*/
+    width: 100%;
+}
+
+.topic-badge {
+    display:inline-block;
+    background-color: black;
+    color: white;
+    padding:10px 15px;
+    position:relative;
+    top: -40px;
+}
+
+.tease {
+    display:block;
+    position:relative;
+    top: -40px; 
 }
 
 .topic-btn {
