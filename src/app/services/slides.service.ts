@@ -51,6 +51,7 @@ export class SlidesService {
 
 function toSlide(d) {
     let slide = <Slide>({
+      id: d._source.id,
       title: d._source.title,
       description: d._source.description,
       pic: d._source.pic,

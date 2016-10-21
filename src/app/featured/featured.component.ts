@@ -66,7 +66,7 @@ export class FeaturedComponent implements OnInit {
                         .subscribe(
                           p => this.articles = p,
                           e => console.log('failed articles', e),
-                          // () => console.log('completed articles')
+                          // () => console.log('completed articles', this.articles)
                           );
 
     this.topicsService.getTopics()

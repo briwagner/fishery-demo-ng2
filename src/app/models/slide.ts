@@ -1,4 +1,5 @@
 export class Slide {
+    id: string;
     title: string;
     description: string;
     pic: string;

@@ -39,6 +39,11 @@ h2 {
     top: -40px; 
 }
 
+.tease a {
+    text-decoration: none;
+    color: black;
+}
+
 .topic-btn {
     display:block;
     margin-top:15px;

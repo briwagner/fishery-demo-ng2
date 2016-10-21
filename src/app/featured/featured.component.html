@@ -11,11 +11,11 @@
       <img src="/assets/{{article.pic}}" alt="{{article.title}}">
       <div class="topic-badge" (click)="filterFor(article.topic)">{{article.topic}}</div>
 
-      <!--<button type="button" class="btn btn-default topic-btn" (click)='filterFor(article.topic)'>{{article.topic}}</button>-->
-      
       <div class="tease">
-        <h4>{{article.title}}</h4>
-        <p>{{article.body | slice:0:60 }}</p>
+        <a href="article/{{article.id}}">
+          <h4>{{article.title}}</h4>
+            <p>{{article.body | slice:0:60 }}</p>
+        </a>
       </div>
       <!--<i>Published: {{article.date}}</i>-->
     </div>

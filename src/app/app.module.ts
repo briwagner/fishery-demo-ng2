@@ -47,7 +47,7 @@ import { FilterSalmonPipe } from './shared/filter-salmon.pipe';
     BrowserModule,
     FormsModule,
     HttpModule,
-    // InMemoryWebApiModule.forRoot(InMemoryDataService, {passThruUnknownUrl: true})
+    InMemoryWebApiModule.forRoot(InMemoryDataService, {passThruUnknownUrl: true})
   ],
   providers: [
     SlidesService,

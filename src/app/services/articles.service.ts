@@ -52,6 +52,7 @@ export class ArticlesService {
 
 function toArticle(d) {
   let article = <Article>({
+    id: d._source.id,
     title: d._source.title,
     date: d._source.date,
     pic: d._source.pic,
