@@ -8,8 +8,9 @@ import 'rxjs/add/operator/toPromise';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
 
-// my model
+// model
 import { Slide } from '../models/slide';
+// mock data
 import { SLIDES } from '../mock-slides';
 
 @Injectable()
@@ -21,19 +22,6 @@ export class SlidesService {
 
   constructor(private http: Http ) { }
 
-// using mock data
-  // getSlides(): Promise<Slide[]> {
-  //   return Promise.resolve(SLIDES);
-  // }
-
-  // using real http service
-  // getSlides() {
-  //   return this.http.get(this.slideUrl)
-  //              .toPromise()
-  //              .then(response => response.json().data as Slide[])
-  //              .catch(this.handleError);
-  // }
-
   getSlides() {
     let slides = this.http.get(this.slidesUrlES, {headers: this.getHeaders()})
                           .map(this.convertSlideData);
@@ -41,8 +29,12 @@ export class SlidesService {
   }
 
   convertSlideData(response: Response): Slide[] {
-    // console.log(response.json())
-    return response.json().hits.hits.map(toSlide);
+    // console.log(response.json().data);
+    if (response.json().data) {
+      return response.json().data.hits.hits.map(toSlide);
+    } else {
+      return response.json().hits.hits.map(toSlide);
+    }
   }
 
   getHeaders() {

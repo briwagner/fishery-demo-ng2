@@ -1,59 +1,62 @@
-import { InMemoryDbService } from 'angular-in-memory-web-api';
+import { InMemoryDbService, createErrorResponse, createObservableResponse, HttpMethodInterceptorArgs, ParsedUrl, STATUS } from 'angular-in-memory-web-api';
+
+import { ResponseOptions, URLSearchParams } from '@angular/http';
+
 export class InMemoryDataService implements InMemoryDbService {
     createDb() {
-        let slides = [
-  {
+        let slides = {"hits": {"hits": [
+  { "_source": {
       title: 'Right Whales Off the Coast of Florida',
       description: 'Right whales off the coast of Florida. Right whales are large baleen whales, and the second largest creature in the world - second only to the blue whale. Females are larger than males. Distinguishing features for right whales include a stocky body, generally black coloration (although some individuals have white patches on their undersides), lack of a dorsal fin, a large head (about 1/4 of the body length), strongly bowed margin of the lower lip, and callosities (raised patches of roughened skin) on the head region. Two rows of long (up to eight feet in length) dark baleen plates hang from the upper jaw, with about 225 plates on each side. The tail is broad, deeply notched, and all black with a smooth trailing edge.',
       pic: 'rightwhale.jpg',
       date: 'February 25th, 2008',
       credit: 'Florida Fish and Wildlife Conservation Commission'
-    },
-    {
+    } },
+    {"_source": {
       title:'School of Bluefin Tuna',
       description: 'Atlantic bluefin tuna are highly migratory and are fished by many nations. The bluefin tuna fishery in the United States is managed domestically by the NOAA Fisheries Service Highly Migratory Species Management Division and internationally by the International Commission for the Conservation of Atlantic Tunas (ICCAT).',
       pic: 'tuna.jpg',
       date: 'March 27th, 2011',
-    },
-    {
+    } },
+    { "_source": {
       title: 'Whale Shark',
       description: 'A whale shark was tagged at West Flower Garden Bank. The whale shark is a slow-moving filter feeding shark and the largest known extant fish species.',
       pic: 'shark.jpg',
       date: 'August 21st, 2011',
       credit: 'FGBNMS/Eckert'
-    },
-    {
+    } },
+    {"_source": {
       title: 'Newly-Hatched Kemp\'s Ridley Turtles with Biologist',
       description: 'NOAA Fisheries scientists work with local partners to count Kemp\'s ridley sea turtle hatchlings on their way to the ocean. This photo was taken under a NOAA Fisheries scientific research permit. Admire wildlife from a distance, for your safety and their protection. Please do not handle sea turtles.',
       pic: 'turtles.jpg',
       date: 'June 6th, 2005',
       credit: 'NOAA Fisheries Protected Resoureces'
-    },
-    {
+    } },
+    {"_source": {
       title: 'Stellar Sea Lions on the Move',
       description: 'Fisheries scientists approach stellar sea lions\' resting spot to collect scat for diet studies.',
       pic: 'sealions.jpg',
       date: 'July 15th, 2007',
       credit: 'Vladimir Burkanov'
-    }
-    ];
+    } }
+    ] } };
 
-    let articles = [
-    {
+    let articles = {"hits": { "hits": [
+    {"_source": {
         title: "Bycatch Reduction Engineering Program - 2016 Awards",
         date: "August 33, 2016",
         pic: "bycatch.jpg",
         topic: "Sustainable Fisheries",
         body: "NOAA Fisheries has awarded more than $2.4 million to partners around the country to support innovative bycatch reduction research projects through its Bycatch Reduction Engineering Program. Bycatch of various species--fish, marine mammals, or turtles--can have significant biological, economic, and social impacts. Preventing and reducing bycatch is a shared goal of fisheries managers, the fishing industry, and the environmental community. Working side-by-side with fishermen on their boats, NOAA Fisheries has developed solutions to some of the top bycatch challenges facing our nation's fisheries. Ongoing regional projects include: Creation of an enhanced communication network and real-time maps to allow longfin squid fishermen to avoid butterfish \"hot spots\" and reduce bycatch by 54 percent in the Northeast. Development of a modified gill-net in the Mid-Atlantic that reduced sturgeon interactions by 64 percent in Virginia's striped bass fishery. Use of LED lights on the West Coast to reduce endangered Columbia River smelt bycatch in the ocean shrimp trawl fishery by 91 percent. 2016 Award Recipients The newly-awarded projects support bycatch reduction research around the country and address a variety of species, including Chinook salmon, Pacific rockfish, shrimp, swordfish, halibut, coastal sharks, skates, sea turtles, whales, and other marine mammals."
-    },
-    {
+    } },
+    {"_source": {
         title: "Enhancing Protections for Hawaiian Spinner Dolphins to Prevent Disturbance",
         date: "August 23, 2016",
         pic: "spinners.jpg",
         topic: "Protected Resources",
         body: "Resident populations of Hawaiian spinner dolphins feed offshore throughout the night and return to Hawaii's coasts to rest during the day. Because Hawaiian spinner dolphins rest in Hawaii's sheltered bays and along its coastlines and are one of the most easily encountered cetaceans in the waters of the Main Hawaiian Islands, they are vulnerable to disturbance and harassment. Dolphin-directed activities have grown dramatically in recent years, and the easily accessible Hawaiian spinner dolphins face heavy and increasing pressures from people seeking a dolphin experience. Chronic disturbance to resting activities can negatively affect the health and fitness of dolphins. NOAA Fisheries is proposing to enhance protections for Hawaiian spinner dolphins to prevent disturbance and harassment from dolphin-directed human activities. The proposed rule would prohibit swimming with and approaching a Hawaiian spinner dolphin within 50 yards by any means (vessel, person, or other object) and would be implemented within two nautical miles from shore of the Main Hawaiian Islands and in designated waters between Maui, Lanai, and Kahoolawe where spinner dolphins are found throughout the day. The proposed rule is based on the preferred alternative (Alternative 3A) in the Draft Environmental Impact Statement. Other alternatives considered include the following:"
-    },
-    {
+    } },
+    {"_source": {
         title: "Sustaining Fisheries through Healthy Habitats in Southern California",
         date: "August 12, 2016",
         pic: "conservation.jpg",
@@ -72,8 +75,8 @@ For instance, I’ve consulted with the Navy on large scale military exercises, 
 
 I’m also engaged in various groups that further habitat conservation efforts outside the EFH consultation process. For instance, I’m a long-time member of the Port of San Diego Environmental Advisory Committee, a diverse group committed to protecting and improving the environmental conditions of the San Diego Bay by enacting a number of efforts, including fishery inventories, research projects, and environmentally preferable hull paint alternatives development.
 `
-    },
-    {
+    } },
+    {"_source": {
         title: "Action Plan for Fish Release Mortality Science",
         date: "Autumn 2016",
         pic: "sandt.png",
@@ -94,8 +97,8 @@ Support the development of improved mortality rate estimates.
 Encourage effective research that leads to reduced release mortality.
 Help ensure that improved mortality rate estimates are helpful to managers.
         `
-    },
-    {
+    } },
+    {"_source": {
         title: "From farm to your table, oysters offer a sustainable choice",
         date: "Summer 2016",
         pic: "aqua.jpg",
@@ -131,8 +134,8 @@ As a fellow in the NOAA Fisheries Aquaculture Program located in the Sacramento 
 
 The Hog Island tour ended fittingly with shucking and eating oysters while gazing out on Tomales Bay. Prior to starting this fellowship I had probably only eaten about a handful of oysters in my life. Since February, I have eaten dozens of oysters. It makes me feel good to know I am eating something healthy, sustainable, local, and delicious!
 `
-    },
-    {
+    } },
+    {"_source": {
         title: "Third Annual Sustainable Seafood Expo",
         date: "September 12, 2016",
         pic: "seafood.jpg",
@@ -143,22 +146,80 @@ NOAA personnel: Amber Rhodes, WCR NOAA Fisheries, Fisheries Policy Analyst, Aman
 
 Visit the Cabrillo Marine Aquarium's and Friends website
 `
-    }
-];
+    } }
+]
+}};
 
 let salmon = {"table":{"columnNames":[{"name":"common_name"},{"name":"season_year"},{"name":"pacfin_code"},{"name":"report_category"},{"name":"wcgop_discard_count_est"},{"name":"wcgop_discard_pounds_est"},{"name":"wcgop_species_updated_date"},{"name":"scientific_name"}],"columnTypes":[],"columnUnits":[],"rows":[{"common_name":"King (Chinook) Salmon","season_year":2015,"pacfin_code":"CHNK","report_category":"IFQ Bottom Trawl","wcgop_discard_count_est":"765","wcgop_discard_pounds_est":"3739","wcgop_species_updated_date":"SAT, 27 FEB 2016 06:58:11 UTC","scientific_name":"oncorhynchus tshawytscha"},{"common_name":"Dog (Chum) Salmon","season_year":2015,"pacfin_code":"CHUM","report_category":"IFQ Bottom Trawl","wcgop_discard_count_est":"SA","wcgop_discard_pounds_est":"SA","wcgop_species_updated_date":"SA","scientific_name":"oncorhynchus keta"},{"common_name":"Silver (Coho) Salmon","season_year":2015,"pacfin_code":"COHO","report_category":"IFQ Bottom Trawl","wcgop_discard_count_est":"34","wcgop_discard_pounds_est":"137","wcgop_species_updated_date":"FRI, 12 FEB 2016 06:57:01 UTC","scientific_name":"oncorhynchus kisutch"},{"common_name":"Pink (Humpback) Salmon","season_year":2015,"pacfin_code":"PINK","report_category":"IFQ Bottom Trawl","wcgop_discard_count_est":"SA","wcgop_discard_pounds_est":"SA","wcgop_species_updated_date":"SA","scientific_name":"oncorhynchus gorbuscha"},{"common_name":"Red (Sockeye) Salmon","season_year":2015,"pacfin_code":"SOCK","report_category":"IFQ Bottom Trawl","wcgop_discard_count_est":"SA","wcgop_discard_pounds_est":"SA","wcgop_species_updated_date":"SA","scientific_name":"oncorhynchus nerka"},{"common_name":"Steelhead (Rainbow Trout)","season_year":2015,"pacfin_code":"STLH","report_category":"IFQ Bottom Trawl","wcgop_discard_count_est":"SA","wcgop_discard_pounds_est":"SA","wcgop_species_updated_date":"SA","scientific_name":"oncorhynchus mykiss"},{"common_name":"Salmon Unid","season_year":2015,"pacfin_code":null,"report_category":"IFQ Bottom Trawl","wcgop_discard_count_est":"1","wcgop_discard_pounds_est":"3","wcgop_species_updated_date":"WED, 09 MAR 2016 06:58:19 UTC","scientific_name":"oncorhynchus"},{"common_name":"King (Chinook) Salmon","season_year":2015,"pacfin_code":"CHNK","report_category":"IFQ Fixed Gear","wcgop_discard_count_est":"0","wcgop_discard_pounds_est":"0","wcgop_species_updated_date":"SA","scientific_name":"oncorhynchus tshawytscha"},{"common_name":"Dog (Chum) Salmon","season_year":2015,"pacfin_code":"CHUM","report_category":"IFQ Fixed Gear","wcgop_discard_count_est":"SA","wcgop_discard_pounds_est":"SA","wcgop_species_updated_date":"SA","scientific_name":"oncorhynchus keta"},{"common_name":"Silver (Coho) Salmon","season_year":2015,"pacfin_code":"COHO","report_category":"IFQ Fixed Gear","wcgop_discard_count_est":"0","wcgop_discard_pounds_est":"0","wcgop_species_updated_date":"SA","scientific_name":"oncorhynchus kisutch"},{"common_name":"Pink (Humpback) Salmon","season_year":2015,"pacfin_code":"PINK","report_category":"IFQ Fixed Gear","wcgop_discard_count_est":"SA","wcgop_discard_pounds_est":"SA","wcgop_species_updated_date":"SA","scientific_name":"oncorhynchus gorbuscha"},{"common_name":"Red (Sockeye) Salmon","season_year":2015,"pacfin_code":"SOCK","report_category":"IFQ Fixed Gear","wcgop_discard_count_est":"SA","wcgop_discard_pounds_est":"SA","wcgop_species_updated_date":"SA","scientific_name":"oncorhynchus nerka"},{"common_name":"Steelhead (Rainbow Trout)","season_year":2015,"pacfin_code":"STLH","report_category":"IFQ Fixed Gear","wcgop_discard_count_est":"SA","wcgop_discard_pounds_est":"SA","wcgop_species_updated_date":"SA","scientific_name":"oncorhynchus mykiss"},{"common_name":"Salmon Unid","season_year":2015,"pacfin_code":null,"report_category":"IFQ Fixed Gear","wcgop_discard_count_est":"0","wcgop_discard_pounds_est":"0","wcgop_species_updated_date":"SA","scientific_name":"oncorhynchus"},{"common_name":"King (Chinook) Salmon","season_year":2015,"pacfin_code":"CHNK","report_category":"IFQ Midwater non-whiting","wcgop_discard_count_est":"47","wcgop_discard_pounds_est":"473","wcgop_species_updated_date":"TUE, 22 DEC 2015 16:44:14 UTC","scientific_name":"oncorhynchus tshawytscha"},{"common_name":"Dog (Chum) Salmon","season_year":2015,"pacfin_code":"CHUM","report_category":"IFQ Midwater non-whiting","wcgop_discard_count_est":"SA","wcgop_discard_pounds_est":"SA","wcgop_species_updated_date":"SA","scientific_name":"oncorhynchus keta"},{"common_name":"Silver (Coho) Salmon","season_year":2015,"pacfin_code":"COHO","report_category":"IFQ Midwater non-whiting","wcgop_discard_count_est":"0","wcgop_discard_pounds_est":"0","wcgop_species_updated_date":"SA","scientific_name":"oncorhynchus kisutch"},{"common_name":"Pink (Humpback) Salmon","season_year":2015,"pacfin_code":"PINK","report_category":"IFQ Midwater non-whiting","wcgop_discard_count_est":"SA","wcgop_discard_pounds_est":"SA","wcgop_species_updated_date":"SA","scientific_name":"oncorhynchus gorbuscha"},{"common_name":"Red (Sockeye) Salmon","season_year":2015,"pacfin_code":"SOCK","report_category":"IFQ Midwater non-whiting","wcgop_discard_count_est":"SA","wcgop_discard_pounds_est":"SA","wcgop_species_updated_date":"SA","scientific_name":"oncorhynchus nerka"},{"common_name":"Steelhead (Rainbow Trout)","season_year":2015,"pacfin_code":"STLH","report_category":"IFQ Midwater non-whiting","wcgop_discard_count_est":"SA","wcgop_discard_pounds_est":"SA","wcgop_species_updated_date":"SA","scientific_name":"oncorhynchus mykiss"},{"common_name":"Salmon Unid","season_year":2015,"pacfin_code":null,"report_category":"IFQ Midwater non-whiting","wcgop_discard_count_est":"0","wcgop_discard_pounds_est":"0","wcgop_species_updated_date":"SA","scientific_name":"oncorhynchus"},{"common_name":"King (Chinook) Salmon","season_year":2015,"pacfin_code":"CHNK","report_category":"IFQ Midwater whiting","wcgop_discard_count_est":"1","wcgop_discard_pounds_est":"16","wcgop_species_updated_date":"TUE, 22 DEC 2015 16:39:03 UTC","scientific_name":"oncorhynchus tshawytscha"},{"common_name":"Dog (Chum) Salmon","season_year":2015,"pacfin_code":"CHUM","report_category":"IFQ Midwater whiting","wcgop_discard_count_est":"SA","wcgop_discard_pounds_est":"SA","wcgop_species_updated_date":"SA","scientific_name":"oncorhynchus keta"},{"common_name":"Silver (Coho) Salmon","season_year":2015,"pacfin_code":"COHO","report_category":"IFQ Midwater whiting","wcgop_discard_count_est":"0","wcgop_discard_pounds_est":"0","wcgop_species_updated_date":"SA","scientific_name":"oncorhynchus kisutch"},{"common_name":"Pink (Humpback) Salmon","season_year":2015,"pacfin_code":"PINK","report_category":"IFQ Midwater whiting","wcgop_discard_count_est":"SA","wcgop_discard_pounds_est":"SA","wcgop_species_updated_date":"SA","scientific_name":"oncorhynchus gorbuscha"},{"common_name":"Red (Sockeye) Salmon","season_year":2015,"pacfin_code":"SOCK","report_category":"IFQ Midwater whiting","wcgop_discard_count_est":"SA","wcgop_discard_pounds_est":"SA","wcgop_species_updated_date":"SA","scientific_name":"oncorhynchus nerka"},{"common_name":"Steelhead (Rainbow Trout)","season_year":2015,"pacfin_code":"STLH","report_category":"IFQ Midwater whiting","wcgop_discard_count_est":"SA","wcgop_discard_pounds_est":"SA","wcgop_species_updated_date":"SA","scientific_name":"oncorhynchus mykiss"},{"common_name":"Salmon Unid","season_year":2015,"pacfin_code":null,"report_category":"IFQ Midwater whiting","wcgop_discard_count_est":"0","wcgop_discard_pounds_est":"0","wcgop_species_updated_date":"SA","scientific_name":"oncorhynchus"},{"common_name":"King (Chinook) Salmon","season_year":2016,"pacfin_code":"CHNK","report_category":"IFQ Bottom Trawl","wcgop_discard_count_est":"123","wcgop_discard_pounds_est":"801","wcgop_species_updated_date":"THU, 15 SEP 2016 07:03:46 UTC","scientific_name":"oncorhynchus tshawytscha"},{"common_name":"Dog (Chum) Salmon","season_year":2016,"pacfin_code":"CHUM","report_category":"IFQ Bottom Trawl","wcgop_discard_count_est":"SA","wcgop_discard_pounds_est":"SA","wcgop_species_updated_date":"SA","scientific_name":"oncorhynchus keta"},{"common_name":"Silver (Coho) Salmon","season_year":2016,"pacfin_code":"COHO","report_category":"IFQ Bottom Trawl","wcgop_discard_count_est":"8","wcgop_discard_pounds_est":"25","wcgop_species_updated_date":"FRI, 22 JUL 2016 07:00:53 UTC","scientific_name":"oncorhynchus kisutch"},{"common_name":"Pink (Humpback) Salmon","season_year":2016,"pacfin_code":"PINK","report_category":"IFQ Bottom Trawl","wcgop_discard_count_est":"SA","wcgop_discard_pounds_est":"SA","wcgop_species_updated_date":"SA","scientific_name":"oncorhynchus gorbuscha"},{"common_name":"Red (Sockeye) Salmon","season_year":2016,"pacfin_code":"SOCK","report_category":"IFQ Bottom Trawl","wcgop_discard_count_est":"SA","wcgop_discard_pounds_est":"SA","wcgop_species_updated_date":"SA","scientific_name":"oncorhynchus nerka"},{"common_name":"Steelhead (Rainbow Trout)","season_year":2016,"pacfin_code":"STLH","report_category":"IFQ Bottom Trawl","wcgop_discard_count_est":"1","wcgop_discard_pounds_est":"5","wcgop_species_updated_date":"SUN, 31 JUL 2016 07:07:11 UTC","scientific_name":"oncorhynchus mykiss"},{"common_name":"Salmon Unid","season_year":2016,"pacfin_code":null,"report_category":"IFQ Bottom Trawl","wcgop_discard_count_est":"SA","wcgop_discard_pounds_est":"SA","wcgop_species_updated_date":"SA","scientific_name":"oncorhynchus"},{"common_name":"King (Chinook) Salmon","season_year":2016,"pacfin_code":"CHNK","report_category":"IFQ Fixed Gear","wcgop_discard_count_est":"0","wcgop_discard_pounds_est":"0","wcgop_species_updated_date":"SA","scientific_name":"oncorhynchus tshawytscha"},{"common_name":"Dog (Chum) Salmon","season_year":2016,"pacfin_code":"CHUM","report_category":"IFQ Fixed Gear","wcgop_discard_count_est":"SA","wcgop_discard_pounds_est":"SA","wcgop_species_updated_date":"SA","scientific_name":"oncorhynchus keta"},{"common_name":"Silver (Coho) Salmon","season_year":2016,"pacfin_code":"COHO","report_category":"IFQ Fixed Gear","wcgop_discard_count_est":"0","wcgop_discard_pounds_est":"0","wcgop_species_updated_date":"SA","scientific_name":"oncorhynchus kisutch"},{"common_name":"Pink (Humpback) Salmon","season_year":2016,"pacfin_code":"PINK","report_category":"IFQ Fixed Gear","wcgop_discard_count_est":"SA","wcgop_discard_pounds_est":"SA","wcgop_species_updated_date":"SA","scientific_name":"oncorhynchus gorbuscha"},{"common_name":"Red (Sockeye) Salmon","season_year":2016,"pacfin_code":"SOCK","report_category":"IFQ Fixed Gear","wcgop_discard_count_est":"SA","wcgop_discard_pounds_est":"SA","wcgop_species_updated_date":"SA","scientific_name":"oncorhynchus nerka"},{"common_name":"Steelhead (Rainbow Trout)","season_year":2016,"pacfin_code":"STLH","report_category":"IFQ Fixed Gear","wcgop_discard_count_est":"0","wcgop_discard_pounds_est":"0","wcgop_species_updated_date":"SA","scientific_name":"oncorhynchus mykiss"},{"common_name":"Salmon Unid","season_year":2016,"pacfin_code":null,"report_category":"IFQ Fixed Gear","wcgop_discard_count_est":"SA","wcgop_discard_pounds_est":"SA","wcgop_species_updated_date":"SA","scientific_name":"oncorhynchus"},{"common_name":"King (Chinook) Salmon","season_year":2016,"pacfin_code":"CHNK","report_category":"IFQ Midwater non-whiting","wcgop_discard_count_est":"0","wcgop_discard_pounds_est":"0","wcgop_species_updated_date":"SA","scientific_name":"oncorhynchus tshawytscha"},{"common_name":"Dog (Chum) Salmon","season_year":2016,"pacfin_code":"CHUM","report_category":"IFQ Midwater non-whiting","wcgop_discard_count_est":"SA","wcgop_discard_pounds_est":"SA","wcgop_species_updated_date":"SA","scientific_name":"oncorhynchus keta"},{"common_name":"Silver (Coho) Salmon","season_year":2016,"pacfin_code":"COHO","report_category":"IFQ Midwater non-whiting","wcgop_discard_count_est":"0","wcgop_discard_pounds_est":"0","wcgop_species_updated_date":"SA","scientific_name":"oncorhynchus kisutch"},{"common_name":"Pink (Humpback) Salmon","season_year":2016,"pacfin_code":"PINK","report_category":"IFQ Midwater non-whiting","wcgop_discard_count_est":"SA","wcgop_discard_pounds_est":"SA","wcgop_species_updated_date":"SA","scientific_name":"oncorhynchus gorbuscha"},{"common_name":"Red (Sockeye) Salmon","season_year":2016,"pacfin_code":"SOCK","report_category":"IFQ Midwater non-whiting","wcgop_discard_count_est":"SA","wcgop_discard_pounds_est":"SA","wcgop_species_updated_date":"SA","scientific_name":"oncorhynchus nerka"},{"common_name":"Steelhead (Rainbow Trout)","season_year":2016,"pacfin_code":"STLH","report_category":"IFQ Midwater non-whiting","wcgop_discard_count_est":"0","wcgop_discard_pounds_est":"0","wcgop_species_updated_date":"SA","scientific_name":"oncorhynchus mykiss"},{"common_name":"Salmon Unid","season_year":2016,"pacfin_code":null,"report_category":"IFQ Midwater non-whiting","wcgop_discard_count_est":"SA","wcgop_discard_pounds_est":"SA","wcgop_species_updated_date":"SA","scientific_name":"oncorhynchus"},{"common_name":"King (Chinook) Salmon","season_year":2016,"pacfin_code":"CHNK","report_category":"IFQ Midwater whiting","wcgop_discard_count_est":"0","wcgop_discard_pounds_est":"0","wcgop_species_updated_date":"SA","scientific_name":"oncorhynchus tshawytscha"},{"common_name":"Dog (Chum) Salmon","season_year":2016,"pacfin_code":"CHUM","report_category":"IFQ Midwater whiting","wcgop_discard_count_est":"SA","wcgop_discard_pounds_est":"SA","wcgop_species_updated_date":"SA","scientific_name":"oncorhynchus keta"},{"common_name":"Silver (Coho) Salmon","season_year":2016,"pacfin_code":"COHO","report_category":"IFQ Midwater whiting","wcgop_discard_count_est":"0","wcgop_discard_pounds_est":"0","wcgop_species_updated_date":"SA","scientific_name":"oncorhynchus kisutch"},{"common_name":"Pink (Humpback) Salmon","season_year":2016,"pacfin_code":"PINK","report_category":"IFQ Midwater whiting","wcgop_discard_count_est":"SA","wcgop_discard_pounds_est":"SA","wcgop_species_updated_date":"SA","scientific_name":"oncorhynchus gorbuscha"},{"common_name":"Red (Sockeye) Salmon","season_year":2016,"pacfin_code":"SOCK","report_category":"IFQ Midwater whiting","wcgop_discard_count_est":"SA","wcgop_discard_pounds_est":"SA","wcgop_species_updated_date":"SA","scientific_name":"oncorhynchus nerka"},{"common_name":"Steelhead (Rainbow Trout)","season_year":2016,"pacfin_code":"STLH","report_category":"IFQ Midwater whiting","wcgop_discard_count_est":"0","wcgop_discard_pounds_est":"0","wcgop_species_updated_date":"SA","scientific_name":"oncorhynchus mykiss"},{"common_name":"Salmon Unid","season_year":2016,"pacfin_code":null,"report_category":"IFQ Midwater whiting","wcgop_discard_count_est":"SA","wcgop_discard_pounds_est":"SA","wcgop_species_updated_date":"SA","scientific_name":"oncorhynchus"}]}};
 
-    let topics = {"hits": [  
-        {name: "Sustainable Fisheries" },
-        {name: "Protected Resources" },
-        {name: "Habitat Conservation"},
-        {name: "International Affairs"},
-        {name: "Science and Technology"},
-        {name: "Aquaculture"},
-        {name: "Seafood Inspection"}
+    let topics = {"hits": {"hits":  
+        [  
+        {"_source": {name: "Sustainable Fisheries" } },
+        {"_source": {name: "Protected Resources" } },
+        {"_source": {name: "Habitat Conservation"} },
+        {"_source": {name: "International Affairs"} },
+        {"_source": {name: "Science and Technology"} },
+        {"_source": {name: "Aquaculture"} },
+        {"_source": {name: "Seafood Inspection"} }
     ]
-    };
+    } };
 
       return {slides, articles, salmon, topics};
     }
+
+    parseUrl(url: string): ParsedUrl {
+        try {
+            const loc = this.getLocation(url);
+            let drop = 0;
+            let urlRoot = '';
+            if (loc.host !== undefined) {
+                // url for a server on a different host!
+                // assume its collection is actually here too.
+                drop = 1; // the leading slash
+                urlRoot = loc.protocol + '//' + loc.host + '/';
+            }
+            const path = loc.pathname.substring(drop);
+
+            let [base, collectionName, id] = path.split('/');
+            
+            // console.log('root', urlRoot, 'host', loc.host, 'path', path, 'base', base, 'collectionname', collectionName);
+
+            switch(loc.host) {
+                case "127.0.0.1:9200":
+                    switch(path) {
+                        case "slides/_search":
+                            base = "app";
+                            collectionName = "slides";
+                            break;
+                        case "articles/_search":
+                            base = "app";
+                            collectionName = "articles";
+                            break;
+                        case "topics/_search":
+                            base = "app";
+                            collectionName = "topics";
+                            break;
+                    }
+                break;
+            }
+
+            const resourceUrl = urlRoot + base + '/' + collectionName + '/';
+            [collectionName] = collectionName.split('.'); // ignore anything after the '.', e.g., '.json'
+            const query = loc.search && new URLSearchParams(loc.search.substr(1));
+
+            const result = { base, collectionName, id, query, resourceUrl };
+            console.log('override parseUrl: ', result);
+            return result;
+        } catch (err) {
+        const msg = `unable to parse url '${url}'; original error: ${err.message}`;
+        throw new Error(msg);
+        }
+    };
+
+private getLocation(href: string) {
+    const l = document.createElement('a');
+    l.href = href;
+    return l;
+  };
+
 }

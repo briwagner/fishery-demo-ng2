@@ -8,8 +8,9 @@ import 'rxjs/add/operator/toPromise';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
 
-// my model
+// model
 import { Article } from '../models/article';
+// mock data
 import { ARTICLES } from '../mock-articles';
 
 @Injectable()
@@ -20,19 +21,6 @@ export class ArticlesService {
   private headers = new Headers({'Content-Type': 'application/json'});
 
   constructor(private http: Http ) { }
-
-// using mock data
-  // getArticles(): Promise<Article[]> {
-  //   return Promise.resolve(ARTICLES);
-  // }
-
-// using real http service
-  // getArticles() {
-  //   return this.http.get(this.slideUrl)
-  //              .toPromise()
-  //              .then(response => response.json().data as Article[])
-  //              .catch(this.handleError);
-  // }
 
 // using ES
   getArticles() {
@@ -48,7 +36,12 @@ export class ArticlesService {
   }
 
   convertArticleData(response: Response) {
-    return response.json().hits.hits.map(toArticle);
+    // console.log( response.json() );
+    if (response.json().data) {
+      return response.json().data.hits.hits.map(toArticle)
+    } else {
+      return response.json().hits.hits.map(toArticle);
+    }
   }
 
   private handleError(error: any): Promise<any> {

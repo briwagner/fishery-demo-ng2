@@ -6,8 +6,8 @@ import { HttpModule } from '@angular/http';
 // no routes yet. this is a custom service
 // import { AppRoutingModule } from './app-routing.module';
 
-// import { InMemoryWebApiModule } from 'angular-in-memory-web-api/in-memory-web-api.module';
-// import { InMemoryDataService } from './in-memory-data.service';
+import { InMemoryWebApiModule } from 'angular-in-memory-web-api/in-memory-web-api.module';
+import { InMemoryDataService } from './in-memory-data.service';
 
 import { AppComponent } from './main-app/app.component';
 
@@ -47,7 +47,7 @@ import { FilterSalmonPipe } from './shared/filter-salmon.pipe';
     BrowserModule,
     FormsModule,
     HttpModule,
-    // InMemoryWebApiModule.forRoot(InMemoryDataService)
+    // InMemoryWebApiModule.forRoot(InMemoryDataService, {passThruUnknownUrl: true})
   ],
   providers: [
     SlidesService,
