@@ -1,8 +1,16 @@
 #footer-nav {
     padding:25px 0;
-    background: linear-gradient(to top, navy,80%, darkcyan);
-    border-radius: 15px 15px 0 0;
-    color: white;
+    /*background: linear-gradient(to top, navy,80%, darkcyan);*/
+    /*border-radius: 15px 15px 0 0;*/
+    /*color: white;*/
+}
+
+.footer {
+    border: 1px solid black;
+}
+
+.copyright {
+    margin: 20px 0;
 }
 
 ul {
@@ -12,11 +20,19 @@ ul {
 }
 
 ul li {
-    color: white;
     font-weight: 800;
-    padding-right: 45px;
+    /*padding-right: 45px;*/
 }
 
 .small-type {
     font-size: 70%;
+}
+
+ul.social-links {
+    margin-left: 0;
+}
+
+.social-links li img {
+    height: 35px;
+    width: auto;
 }

@@ -21,7 +21,11 @@ nav ul li a {
 nav ul li a.logo-link {
     margin-top: 0;
     padding-top: 0
-} 
+}
+
+nav ul li a.logo-link:hover {
+    background: none;
+}
 
 nav ul li input {
     margin-top: 14px;

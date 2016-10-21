@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-let Links = [{
+const Links = [{
     "name": "Find a species",
     "path": "species",
     "weight": 0
