@@ -27,9 +27,21 @@ nav ul li a.logo-link:hover {
     background: none;
 }
 
-nav ul li input {
+.search-box {
+    background: white;
     margin-top: 14px;
-    margin-left:25px;
+    border: 1px solid #efefef;
+    border-radius: 5px;
+    padding-left: 5px;
+}
+
+nav ul li .form-control {
+    width:initial;
+    display:inline-block;
+    border-color: white;
+}
+
+nav ul li input {
 }
 
 nav ul li a:hover {
