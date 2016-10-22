@@ -30,6 +30,7 @@ import { SplitUnderscorePipe } from './shared/split-underscore.pipe';
 import { FilterColumnsPipe } from './shared/filter-columns.pipe';
 import { FilterSalmonPipe } from './shared/filter-salmon.pipe';
 import { LandingComponent } from './landing/landing.component';
+import { ArticleComponent } from './article/article.component';
 
 @NgModule({
   declarations: [
@@ -44,13 +45,14 @@ import { LandingComponent } from './landing/landing.component';
     SplitUnderscorePipe,
     FilterColumnsPipe,
     FilterSalmonPipe,
+    ArticleComponent,
   ],
   imports: [
-    FisheriesRoutingModule,
     BrowserModule,
     FormsModule,
     HttpModule,
-    InMemoryWebApiModule.forRoot(InMemoryDataService, {passThruUnknownUrl: true})
+    // InMemoryWebApiModule.forRoot(InMemoryDataService, {passThruUnknownUrl: true})
+    FisheriesRoutingModule,
   ],
   providers: [
     SlidesService,

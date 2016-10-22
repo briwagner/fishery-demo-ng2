@@ -4,11 +4,17 @@ import { Routes, RouterModule } from '@angular/router';
 // components
 import { LandingComponent } from './landing/landing.component';
 import { ColorboxComponent } from './colorbox/colorbox.component';
+import { ArticleComponent } from './article/article.component';
 
 const routes: Routes = [
   {
     path: '',
-    component: LandingComponent
+    component: LandingComponent,
+    pathMatch: 'full'
+  },
+  {
+    path: 'article/:id',
+    component: ArticleComponent
   },
   {
     path: 'colorbox',

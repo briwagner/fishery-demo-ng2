@@ -17,16 +17,22 @@ import { ARTICLES } from '../mock-articles';
 export class ArticlesService {
 
   private slideUrl = "app/articles";
-  private articlesUrlES = "http://127.0.0.1:9200/articles/_search";
+  private articlesUrl_ES = "http://127.0.0.1:9200/articles/_search";
+  private article_Url    = "http://127.0.0.1:9200/articles/article";
   private headers = new Headers({'Content-Type': 'application/json'});
 
   constructor(private http: Http ) { }
 
-// using ES
   getArticles() {
-    let articles = this.http.get(this.articlesUrlES, {headers: this.getHeaders()})
+    let articles = this.http.get(this.articlesUrl_ES, {headers: this.getHeaders()})
                           .map(this.convertArticleData);
     return articles;
+  }
+
+  getArticle(id) {
+    let article = this.http.get(this.article_Url + "/" + id, {headers: this.getHeaders()})
+                           .map(d => toArticle( d.json() )).toPromise();
+    return article;
   }
 
   getHeaders() {
@@ -38,7 +44,7 @@ export class ArticlesService {
   convertArticleData(response: Response) {
     // console.log( response.json() );
     if (response.json().data) {
-      return response.json().data.hits.hits.map(toArticle)
+      return response.json().data.hits.hits.map(toArticle);
     } else {
       return response.json().hits.hits.map(toArticle);
     }
@@ -52,12 +58,12 @@ export class ArticlesService {
 
 function toArticle(d) {
   let article = <Article>({
-    id: d._source.id,
+    id: d._id || d._source.id,
     title: d._source.title,
     date: d._source.date,
     pic: d._source.pic,
     topic: d._source.topic,
     body: d._source.body
-  })
+  });
   return article;
 }

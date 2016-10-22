@@ -6,7 +6,7 @@ export class InMemoryDataService implements InMemoryDbService {
     createDb() {
         let slides = {"hits": {"hits": [
   { "_source": {
-      id: "23",
+      id: "1",
       title: 'Right Whales Off the Coast of Florida',
       description: 'Right whales off the coast of Florida. Right whales are large baleen whales, and the second largest creature in the world - second only to the blue whale. Females are larger than males. Distinguishing features for right whales include a stocky body, generally black coloration (although some individuals have white patches on their undersides), lack of a dorsal fin, a large head (about 1/4 of the body length), strongly bowed margin of the lower lip, and callosities (raised patches of roughened skin) on the head region. Two rows of long (up to eight feet in length) dark baleen plates hang from the upper jaw, with about 225 plates on each side. The tail is broad, deeply notched, and all black with a smooth trailing edge.',
       pic: 'rightwhale.jpg',
@@ -14,14 +14,14 @@ export class InMemoryDataService implements InMemoryDbService {
       credit: 'Florida Fish and Wildlife Conservation Commission'
     } },
     {"_source": {
-      id: "34",
+      id: "2",
       title:'School of Bluefin Tuna',
       description: 'Atlantic bluefin tuna are highly migratory and are fished by many nations. The bluefin tuna fishery in the United States is managed domestically by the NOAA Fisheries Service Highly Migratory Species Management Division and internationally by the International Commission for the Conservation of Atlantic Tunas (ICCAT).',
       pic: 'tuna.jpg',
       date: 'March 27th, 2011',
     } },
     { "_source": {
-      id: "75",
+      id: "3",
       title: 'Whale Shark',
       description: 'A whale shark was tagged at West Flower Garden Bank. The whale shark is a slow-moving filter feeding shark and the largest known extant fish species.',
       pic: 'shark.jpg',
@@ -29,7 +29,7 @@ export class InMemoryDataService implements InMemoryDbService {
       credit: 'FGBNMS/Eckert'
     } },
     {"_source": {
-      id: "12",
+      id: "4",
       title: 'Newly-Hatched Kemp\'s Ridley Turtles with Biologist',
       description: 'NOAA Fisheries scientists work with local partners to count Kemp\'s ridley sea turtle hatchlings on their way to the ocean. This photo was taken under a NOAA Fisheries scientific research permit. Admire wildlife from a distance, for your safety and their protection. Please do not handle sea turtles.',
       pic: 'turtles.jpg',
@@ -37,7 +37,7 @@ export class InMemoryDataService implements InMemoryDbService {
       credit: 'NOAA Fisheries Protected Resoureces'
     } },
     {"_source": {
-      id: "55",
+      id: "5",
       title: 'Stellar Sea Lions on the Move',
       description: 'Fisheries scientists approach stellar sea lions\' resting spot to collect scat for diet studies.',
       pic: 'sealions.jpg',
@@ -48,7 +48,7 @@ export class InMemoryDataService implements InMemoryDbService {
 
     let articles = {"hits": { "hits": [
     {"_source": {
-        id: "44",
+        id: "1",
         title: "Bycatch Reduction Engineering Program - 2016 Awards",
         date: "August 33, 2016",
         pic: "bycatch.jpg",
@@ -56,7 +56,7 @@ export class InMemoryDataService implements InMemoryDbService {
         body: "NOAA Fisheries has awarded more than $2.4 million to partners around the country to support innovative bycatch reduction research projects through its Bycatch Reduction Engineering Program. Bycatch of various species--fish, marine mammals, or turtles--can have significant biological, economic, and social impacts. Preventing and reducing bycatch is a shared goal of fisheries managers, the fishing industry, and the environmental community. Working side-by-side with fishermen on their boats, NOAA Fisheries has developed solutions to some of the top bycatch challenges facing our nation's fisheries. Ongoing regional projects include: Creation of an enhanced communication network and real-time maps to allow longfin squid fishermen to avoid butterfish \"hot spots\" and reduce bycatch by 54 percent in the Northeast. Development of a modified gill-net in the Mid-Atlantic that reduced sturgeon interactions by 64 percent in Virginia's striped bass fishery. Use of LED lights on the West Coast to reduce endangered Columbia River smelt bycatch in the ocean shrimp trawl fishery by 91 percent. 2016 Award Recipients The newly-awarded projects support bycatch reduction research around the country and address a variety of species, including Chinook salmon, Pacific rockfish, shrimp, swordfish, halibut, coastal sharks, skates, sea turtles, whales, and other marine mammals."
     } },
     {"_source": {
-        id: "31",
+        id: "2",
         title: "Enhancing Protections for Hawaiian Spinner Dolphins to Prevent Disturbance",
         date: "August 23, 2016",
         pic: "spinners.jpg",
@@ -64,7 +64,7 @@ export class InMemoryDataService implements InMemoryDbService {
         body: "Resident populations of Hawaiian spinner dolphins feed offshore throughout the night and return to Hawaii's coasts to rest during the day. Because Hawaiian spinner dolphins rest in Hawaii's sheltered bays and along its coastlines and are one of the most easily encountered cetaceans in the waters of the Main Hawaiian Islands, they are vulnerable to disturbance and harassment. Dolphin-directed activities have grown dramatically in recent years, and the easily accessible Hawaiian spinner dolphins face heavy and increasing pressures from people seeking a dolphin experience. Chronic disturbance to resting activities can negatively affect the health and fitness of dolphins. NOAA Fisheries is proposing to enhance protections for Hawaiian spinner dolphins to prevent disturbance and harassment from dolphin-directed human activities. The proposed rule would prohibit swimming with and approaching a Hawaiian spinner dolphin within 50 yards by any means (vessel, person, or other object) and would be implemented within two nautical miles from shore of the Main Hawaiian Islands and in designated waters between Maui, Lanai, and Kahoolawe where spinner dolphins are found throughout the day. The proposed rule is based on the preferred alternative (Alternative 3A) in the Draft Environmental Impact Statement. Other alternatives considered include the following:"
     } },
     {"_source": {
-        id: "11",
+        id: "3",
         title: "Sustaining Fisheries through Healthy Habitats in Southern California",
         date: "August 12, 2016",
         pic: "conservation.jpg",
@@ -85,7 +85,7 @@ I’m also engaged in various groups that further habitat conservation efforts o
 `
     } },
     {"_source": {
-        id: "49",
+        id: "4",
         title: "Action Plan for Fish Release Mortality Science",
         date: "Autumn 2016",
         pic: "sandt.png",
@@ -108,7 +108,7 @@ Help ensure that improved mortality rate estimates are helpful to managers.
         `
     } },
     {"_source": {
-        id: "22",
+        id: "5",
         title: "From farm to your table, oysters offer a sustainable choice",
         date: "Summer 2016",
         pic: "aqua.jpg",
@@ -146,7 +146,7 @@ The Hog Island tour ended fittingly with shucking and eating oysters while gazin
 `
     } },
     {"_source": {
-        id: "20",
+        id: "6",
         title: "Third Annual Sustainable Seafood Expo",
         date: "September 12, 2016",
         pic: "seafood.jpg",
@@ -165,13 +165,13 @@ let salmon = {"table":{"columnNames":[{"name":"common_name"},{"name":"season_yea
 
     let topics = {"hits": {"hits":  
         [  
-        {"_source": {name: "Sustainable Fisheries" } },
-        {"_source": {name: "Protected Resources" } },
-        {"_source": {name: "Habitat Conservation"} },
-        {"_source": {name: "International Affairs"} },
-        {"_source": {name: "Science and Technology"} },
-        {"_source": {name: "Aquaculture"} },
-        {"_source": {name: "Seafood Inspection"} }
+        {"_source": {id: 1, name: "Sustainable Fisheries" } },
+        {"_source": {id: 2, name: "Protected Resources" } },
+        {"_source": {id: 3, name: "Habitat Conservation"} },
+        {"_source": {id: 4, name: "International Affairs"} },
+        {"_source": {id: 5, name: "Science and Technology"} },
+        {"_source": {id: 6, name: "Aquaculture"} },
+        {"_source": {id: 7, name: "Seafood Inspection"} }
     ]
     } };
 
@@ -197,19 +197,13 @@ let salmon = {"table":{"columnNames":[{"name":"common_name"},{"name":"season_yea
 
             switch(loc.host) {
                 case "127.0.0.1:9200":
-                    switch(path) {
-                        case "slides/_search":
-                            base = "app";
-                            collectionName = "slides";
-                            break;
-                        case "articles/_search":
-                            base = "app";
-                            collectionName = "articles";
-                            break;
-                        case "topics/_search":
-                            base = "app";
-                            collectionName = "topics";
-                            break;
+                    if ( path.indexOf("_search") > -1 ) {
+                        base = "app";
+                        collectionName = path.split("/")[0];
+                    } else if ( path.indexOf("articles") > -1 ) {
+                        base = "app";
+                        collectionName = "articles";
+                        id = path.split("/")[2] || '';
                     }
                 break;
             }

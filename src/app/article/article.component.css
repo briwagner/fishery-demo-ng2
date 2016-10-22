@@ -1,0 +1,18 @@
+img {
+    float: left;
+    max-width: 50%;
+    margin: 5px 20px 15px 5px;
+}
+
+.topic {
+    margin: 20px 0 10px;
+}
+
+.badge {
+    font-weight: 500;
+    padding:10px;
+}
+
+p.dateline {
+    margin:12px 0 5px;
+}

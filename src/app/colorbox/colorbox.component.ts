@@ -12,7 +12,6 @@ export class ColorboxComponent implements OnInit {
 
   constructor(private slidesService: SlidesService) { }
 
-  // slides = SLIDES;
   slides: Slide[];
   selectedSlide;
 
