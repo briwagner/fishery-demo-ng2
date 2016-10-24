@@ -32,6 +32,7 @@ import { FilterSalmonPipe } from './shared/filter-salmon.pipe';
 import { LandingComponent } from './landing/landing.component';
 import { ArticleComponent } from './article/article.component';
 import { MultimediaComponent } from './multimedia/multimedia.component';
+import { SlideComponent } from './slide/slide.component';
 
 @NgModule({
   declarations: [
@@ -42,18 +43,19 @@ import { MultimediaComponent } from './multimedia/multimedia.component';
     FooterComponent,
     LandingComponent,
     SalmonReportComponent,
+    ArticleComponent,
+    MultimediaComponent,
     FilterTopicPipe,
     SplitUnderscorePipe,
     FilterColumnsPipe,
     FilterSalmonPipe,
-    ArticleComponent,
-    MultimediaComponent,
+    SlideComponent,
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule,
-    InMemoryWebApiModule.forRoot(InMemoryDataService, {passThruUnknownUrl: true}),
+    // InMemoryWebApiModule.forRoot(InMemoryDataService, {passThruUnknownUrl: true}),
     FisheriesRoutingModule,
   ],
   providers: [

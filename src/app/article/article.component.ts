@@ -16,9 +16,9 @@ export class ArticleComponent implements OnInit {
 
   constructor(
     private router: Router,
-    private articlesservice: ArticlesService,
     private route: ActivatedRoute,
-    private location: Location
+    private location: Location,
+    private articlesservice: ArticlesService
   ) { }
 
   ngOnInit() {

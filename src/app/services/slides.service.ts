@@ -16,11 +16,19 @@ import { SLIDES } from '../mock-slides';
 @Injectable()
 export class SlidesService {
 
-  private slideUrl = "app/slides";
+  private slide_collection = "app/slides";
   private slidesUrlES = "http://127.0.0.1:9200/slides/_search";
+  private slideUrl = "http://127.0.0.1:9200/slides/slide";
   private header = new Headers({'Content-Type': 'application/json'});
 
   constructor(private http: Http ) { }
+
+  getSlide(id) {
+    let slide = this.http.get(this.slideUrl + "/" + id, {headers: this.getHeaders()})
+                         .map(d => toSlide( d.json() ))
+                         .toPromise();
+    return slide;
+  }
 
   getSlides() {
     let slides = this.http.get(this.slidesUrlES, {headers: this.getHeaders()})
@@ -51,7 +59,7 @@ export class SlidesService {
 
 function toSlide(d) {
     let slide = <Slide>({
-      id: d._source.id,
+      id: d._id || d._source.id,
       title: d._source.title,
       description: d._source.description,
       pic: d._source.pic,

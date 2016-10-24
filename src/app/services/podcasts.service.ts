@@ -15,7 +15,7 @@ import { Podcast } from '../models/podcast';
 export class PodcastsService {
 
   private podcastsUrl = "http://127.0.0.1:9200/podcasts/_search";
-  private podcastUrl  = "http://127.0.0.1:9200/podcasts/podcast/";
+  private podcastUrl  = "http://127.0.0.1:9200/podcasts/podcast";
   private headers = new Headers({'Content-Type': 'application/json'});
 
   constructor(private http: Http) { }
