@@ -1,0 +1,14 @@
+h2 {
+    color: #999;
+}
+
+img {
+    max-width: 100%;
+}
+
+span {
+    color: white;
+    background-color: black;
+    display:block;
+    padding: 7px 5px;
+}

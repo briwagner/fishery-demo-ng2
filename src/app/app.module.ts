@@ -22,6 +22,7 @@ import { SlidesService } from './services/slides.service';
 import { ArticlesService } from './services/articles.service';
 import { TopicsService } from './services/topics.service';
 import { SalmonService } from './services/salmon.service';
+import { PodcastsService } from './services/podcasts.service';
 
 // pipes
 import { FilterTopicPipe } from './shared/filter-topic.pipe';
@@ -30,6 +31,7 @@ import { FilterColumnsPipe } from './shared/filter-columns.pipe';
 import { FilterSalmonPipe } from './shared/filter-salmon.pipe';
 import { LandingComponent } from './landing/landing.component';
 import { ArticleComponent } from './article/article.component';
+import { MultimediaComponent } from './multimedia/multimedia.component';
 
 @NgModule({
   declarations: [
@@ -45,6 +47,7 @@ import { ArticleComponent } from './article/article.component';
     FilterColumnsPipe,
     FilterSalmonPipe,
     ArticleComponent,
+    MultimediaComponent,
   ],
   imports: [
     BrowserModule,
@@ -57,7 +60,8 @@ import { ArticleComponent } from './article/article.component';
     SlidesService,
     ArticlesService,
     TopicsService,
-    SalmonService
+    SalmonService,
+    PodcastsService
     ],
   bootstrap: [AppComponent]
 })
