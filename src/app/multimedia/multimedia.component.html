@@ -3,12 +3,14 @@
     <h2>Multimedia</h2>
 
       <div class="col-md-4">
-        Photos
+        <img src="/assets/sandt.png" alt="Photos link">
+        <span>Photos</span>
       </div>
       <div class="col-md-4">
-        Video
+        <img src="/assets/sealions.jpg" alt="Video link">
+        <span>Video</span>
       </div>
-      <div class="col-md-4">
+      <div class="col-md-4" *ngIf="podcast">
         <img src="/assets/{{podcast?.pic}}" alt="{{podcast?.title}}">
         <span>Podcasts</span>
       </div>
