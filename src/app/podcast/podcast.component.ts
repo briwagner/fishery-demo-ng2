@@ -12,7 +12,9 @@ import { Podcast } from '../models/podcast';
 })
 export class PodcastComponent implements OnInit {
 
+  id: number;
   podcast: Podcast;
+  podcasts: Podcast[];
 
   constructor(
     private router: Router,
@@ -22,18 +24,35 @@ export class PodcastComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.getPodcast();
+    // check route if id is passed
+    let par = this.route.params.subscribe( params => {
+      this.id = +params['id'] || -1;
+    });
+    this.getPodcasts(this.id);
   }
 
   getPodcast() {
     this.route.params.forEach( (params) => {
       this.podcastsservice.getPodcast(params['id'])
                           .then( d => this.assignPodcast(d) );
-    } )
+    });
   }
 
-  getPodcasts() {
-
+  getPodcasts(id) {
+    let podcasts = this.podcastsservice.getPodcasts()
+                                        .subscribe(
+                                          p => {
+                                            this.podcasts = p;
+                                            // if ID is passed, make it featured
+                                            // else set featured to first in array for now 
+                                            if (id > -1) {
+                                              this.assignPodcast( p.find(obj => obj.id == id) );
+                                            } else {
+                                              this.assignPodcast(p[0]);
+                                            }
+                                          },
+                                          e => console.log(e)
+                                        );
   }
 
   assignPodcast(d) {

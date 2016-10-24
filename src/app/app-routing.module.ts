@@ -23,6 +23,10 @@ const routes: Routes = [
     component: SlideComponent
   },
   {
+    path: 'podcast',
+    component: PodcastComponent
+  },
+  {
     path: 'podcast/:id',
     component: PodcastComponent
   },

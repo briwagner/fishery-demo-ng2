@@ -1,5 +1,5 @@
 <div class="row">
-  <div class="col-md-8 col-md-offset-2">
+  <div class="col-md-8 col-md-offset-1">
     <div class="header text-center">
       <h3>{{podcast?.title}}</h3>
       <p>{{podcast?.subtitle}}</p>
@@ -9,10 +9,22 @@
     <p><i>{{podcast?.caption}}</i></p>
 
     <div class="audio-container text-center">
+      <h4>Listen</h4>
       <audio src="/assets/podcast/{{podcast?.file}}" controls>Your browser can't play the audio file.</audio>
     </div>
 
     <p>{{podcast?.body}}</p>
+    <p>Download the podcast: <a href="/assets/podcast/{{podcast?.file}}">{{podcast?.title}}</a></p>
+  </div>
+
+  <div class="col-md-2 podcast-sidebar">
+    <h4 class="text-center">More Podcasts</h4>
+    <ul>
+      <li *ngFor="let pod of podcasts" class="podcast-sidebar-list">
+        <img src="/assets/{{pod?.pic}}" alt="{{pod?.title}}">
+        <h5 (click)="assignPodcast(pod)">{{pod?.title}}</h5>
+      </li>
+    </ul>
   </div>
 
 </div>

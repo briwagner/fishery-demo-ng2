@@ -9,3 +9,29 @@ audio {
 .audio-container {
     display:block;
 }
+
+.audio-container h4 {
+    margin-top: 20px;
+    margin-bottom: 0;
+}
+
+div.podcast-sidebar ul {
+    padding-left: 0
+}
+
+li.podcast-sidebar-list {
+    list-style-type: none;
+}
+
+.podcast-sidebar-list img {
+    max-width:100%;
+}
+
+.podcast-sidebar-list h5 {
+    display:block;
+    color:white;
+    background-color:black;
+    margin-top:0;
+    padding:5px;
+    cursor: pointer;
+}
