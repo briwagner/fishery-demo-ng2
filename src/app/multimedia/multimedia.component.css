@@ -13,3 +13,14 @@ span {
     display:block;
     padding: 7px 5px;
 }
+
+a {
+    color: white;
+    font-weight: 600;
+    text-decoration:none;
+}
+
+a:hover {
+    text-decoration:none;
+}
+
