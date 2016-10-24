@@ -19,6 +19,10 @@ const routes: Routes = [
   {
     path: 'colorbox',
     component: ColorboxComponent
+  },
+  {
+    path: '**',
+    component: LandingComponent
   }
 ];
 

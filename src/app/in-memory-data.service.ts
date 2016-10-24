@@ -175,6 +175,40 @@ let salmon = {"table":{"columnNames":[{"name":"common_name"},{"name":"season_yea
     ]
     } };
 
+    let podcasts = {"hits": {"hits": [
+        {"_source": {
+                "title": "Putting the World in World Sea Turtle Day",
+                "subtitle": "An interview with NOAA Fisheries biologist and sea turtle scientist Manjula Tiwari",
+                "date": "June 10, 2016",
+                "file": "putting_the_world_in_world_sea_turtle_day.mp3",
+                "pic": "world_sea_turtle_day_banner.jpg",
+                "caption": `NOAA Fisheries biologist and sea turtle expert Dr. Manjula Tiwari measuring a green turtle carapace in Namibia. Photo courtesy of Manjula Tiwari.`,
+                "body": `June 16th is World Sea Turtle Day, and needless to say this is a very big day for us here at NOAA Fisheries. So for today’s podcast we’re going to hear from Manjula Tiwari, a sea turtle scientist with NOAA’s Southwest Fisheries Science Center. Dr. Tiwari works all over the world helping communities that live near sea turtle nesting beaches to protect their sea turtle populations.
+
+Dr. Tiwari works with many
+species of sea turtles, including one of the most endangered, the Pacific leatherback. Pacific leatherback populations have declined by more than 90 percent and the largest remaining population nests on beaches in Papua, Indonesia. Leatherbacks that hatch in Papua later show up off the U.S. West Coast, which is one reason that NOAA Fisheries is working to protect them and their nesting beaches on the other side of the world.
+
+To save Pacific leatherbacks, people from many nations have to work together. Dr. Tiwari works with people in Papua, Indonesia. Other NOAA Fisheries scientists work with fishermen and research partners to protect the turtles along their international migration routes. As Dr. Tiwari says in this podcast, “leatherbacks make the world a very small place.”`
+            }
+        },
+        {"_source": {
+                "title": "Tracking El Nino and Its Effects on Life in the Ocean",
+                "subtitle": "An interview with NOAA Fisheries’ two top scientists on the West Coast",
+                "date": "March 30, 2016",
+                "file": "tracking_el_nino.mp3",
+                "pic": "el_nino_banner.jpg",
+                "caption": `Satellite sea surface temperature during January, 2016. Colors show where average monthly sea surface temperature was above (red) or below (blue) its 1981-2010 average. Waters across the tropical Pacific Ocean were warmer than average during this month, suggesting that El Nino still had a grip on the basin. Photo: climate.gov/NNVL. Data: Geo-Polar SST.
+
+`,
+                "body": `We’ve had a very powerful El Niño this year. That, of course, is the phenomenon in the Pacific Ocean that causes rains and coastal flooding on parts of the West Coast, extreme weather on the East Coast, and crazy weather in many parts of the world.
+
+But El Niño isn’t just about weather on land. It also has profound effects on life in the ocean, and that, of course, is where NOAA Fisheries comes in.
+
+In this podcast, the agency’s two top scientists on the West Coast discuss those effects. Cisco Werner is the Director of NOAA’s Southwest Fisheries Science Center in La Jolla, California and John Stein is the Director of the Northwest Fisheries Science Center in Seattle. We’ve gotten very good at predicting when an El Niño will happen and what its effects will be, they say. But as the climate changes, cyclical events like El Niño are rising off a shifting baseline. That will keep our scientists on their toes.`
+            }
+        }
+    ]}};
+
       return {slides, articles, salmon, topics};
     }
 
