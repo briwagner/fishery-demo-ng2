@@ -55,6 +55,7 @@ function toPodcast(d) {
     title: d._source.title,
     subtitle: d._source.subtitle,
     date: d._source.date,
+    file: d._source.file,
     pic: d._source.pic,
     caption: d._source.caption,
     body: d._source.body  

@@ -33,6 +33,7 @@ import { LandingComponent } from './landing/landing.component';
 import { ArticleComponent } from './article/article.component';
 import { MultimediaComponent } from './multimedia/multimedia.component';
 import { SlideComponent } from './slide/slide.component';
+import { PodcastComponent } from './podcast/podcast.component';
 
 @NgModule({
   declarations: [
@@ -45,6 +46,7 @@ import { SlideComponent } from './slide/slide.component';
     SalmonReportComponent,
     ArticleComponent,
     MultimediaComponent,
+    PodcastComponent,
     FilterTopicPipe,
     SplitUnderscorePipe,
     FilterColumnsPipe,

@@ -1,0 +1,11 @@
+img.img-responsive {
+    margin: 0 auto;
+}
+
+audio {
+    margin: 15px 0;
+}
+
+.audio-container {
+    display:block;
+}

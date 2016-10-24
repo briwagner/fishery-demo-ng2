@@ -1,0 +1,18 @@
+<div class="row">
+  <div class="col-md-8 col-md-offset-2">
+    <div class="header text-center">
+      <h3>{{podcast?.title}}</h3>
+      <p>{{podcast?.subtitle}}</p>
+      <p><i>{{podcast?.date}}</i></p>
+    </div>
+    <img src="/assets/{{podcast?.pic}}" alt="{{podcast?.title}}" class="img-responsive">
+    <p><i>{{podcast?.caption}}</i></p>
+
+    <div class="audio-container text-center">
+      <audio src="/assets/podcast/{{podcast?.file}}" controls>Your browser can't play the audio file.</audio>
+    </div>
+
+    <p>{{podcast?.body}}</p>
+  </div>
+
+</div>
