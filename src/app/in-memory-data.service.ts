@@ -234,10 +234,10 @@ In this podcast, the agency’s two top scientists on the West Coast discuss tho
                     if ( path.indexOf("_search") > -1 ) {
                         base = "app";
                         collectionName = path.split("/")[0];
-                    } else if ( path.indexOf("articles") > -1 ) {
-                        base = "app";
-                        collectionName = "articles";
-                        id = path.split("/")[2] || '';
+                    // } else if ( path.indexOf("articles") > -1 ) {
+                    //     base = "app";
+                    //     collectionName = "articles";
+                    //     id = path.split("/")[2] || '';
                     }
                 break;
             }
