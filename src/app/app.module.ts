@@ -57,7 +57,7 @@ import { PodcastComponent } from './podcast/podcast.component';
     BrowserModule,
     FormsModule,
     HttpModule,
-    // InMemoryWebApiModule.forRoot(InMemoryDataService, {passThruUnknownUrl: true}),
+    InMemoryWebApiModule.forRoot(InMemoryDataService, {passThruUnknownUrl: true}),
     FisheriesRoutingModule,
   ],
   providers: [
