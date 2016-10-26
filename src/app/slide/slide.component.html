@@ -4,10 +4,20 @@
     <img src="/assets/{{slide?.pic}}" alt="{{slide?.title}}">
   </div>
 
-  <div class="col-md-2">
+  <div class="col-md-2 slide-body">
     <h3>{{slide?.title}}</h3>
     <p><i>{{slide?.date}}</i></p>
     <p>{{slide?.description}}</p>
     <p><strong>Credit:</strong> {{slide?.credit}}</p>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-12 slide-panel">
+    <ul>
+      <li *ngFor="let sl of slides | slice:0:4">
+        <img src="/assets/{{sl.pic}}" alt="{{sl.title}}" (click)="assignSlide(sl)">
+      </li>
+    </ul>
   </div>
 </div>

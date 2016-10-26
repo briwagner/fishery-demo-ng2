@@ -1,7 +1,32 @@
 div.slide-container {
     margin: 25px 0;
+    height: 450px;
+    overflow-y: scroll;
 }
 
-img {
+.slide-container img {
     max-width: 100%;
+    margin-top: 15px;
+}
+
+.slide-body {
+    height:430px;
+    overflow-y:scroll;
+}
+
+.slide-container h3 {
+    margin-top:10px;
+}
+
+.slide-panel ul {
+    list-style-type: none;
+}
+
+.slide-panel li {
+    display: inline-block;
+}
+
+.slide-panel img {
+    height: 140px; 
+    width: auto;
 }

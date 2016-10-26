@@ -13,6 +13,8 @@ import { Slide } from '../models/slide';
 export class SlideComponent implements OnInit {
 
   slide: Slide;
+  slides: Slide[];
+  id: number;
 
   constructor(
     private router: Router,
@@ -22,7 +24,11 @@ export class SlideComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.getSlide();
+    // this.getSlide();
+    this.route.params.subscribe( params => {
+      this.id = +params['id'] || -1 
+    });
+    this.getSlides(this.id);
   }
 
   getSlide() {
@@ -32,8 +38,19 @@ export class SlideComponent implements OnInit {
     });
   }
 
-  getSlides() {
-
+  getSlides(pathId) {
+    this.slidesservice.getSlides()
+                      .subscribe(
+                        p => {
+                          this.slides = p;
+                          if (pathId == -1) {
+                            this.assignSlide( p[0] );
+                          } else {
+                            this.assignSlide( this.slides.find( obj => obj.id == pathId) ); 
+                          }
+                        },
+                        e => console.log('error', e)
+                      );
   }
 
   assignSlide(d) {
