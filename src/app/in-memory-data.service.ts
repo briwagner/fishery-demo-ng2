@@ -240,6 +240,9 @@ In this podcast, the agency’s two top scientists on the West Coast discuss tho
                     //     id = path.split("/")[2] || '';
                     }
                 break;
+                case "fishwatch.noaa.mobomo.net":
+                    // console.log('inside path');
+                break;
             }
 
             const resourceUrl = urlRoot + base + '/' + collectionName + '/';

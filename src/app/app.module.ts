@@ -16,6 +16,12 @@ import { ColorboxComponent } from './colorbox/colorbox.component';
 import { FeaturedComponent } from './featured/featured.component';
 import { FooterComponent } from './footer/footer.component';
 import { SalmonReportComponent } from './salmon-report/salmon-report.component';
+import { LandingComponent } from './landing/landing.component';
+import { ArticleComponent } from './article/article.component';
+import { MultimediaComponent } from './multimedia/multimedia.component';
+import { SlideComponent } from './slide/slide.component';
+import { PodcastComponent } from './podcast/podcast.component';
+import { FishwatchComponent } from './fishwatch/fishwatch.component';
 
 // services
 import { SlidesService } from './services/slides.service';
@@ -23,17 +29,13 @@ import { ArticlesService } from './services/articles.service';
 import { TopicsService } from './services/topics.service';
 import { SalmonService } from './services/salmon.service';
 import { PodcastsService } from './services/podcasts.service';
+import { FishwatchService } from './services/fishwatch.service';
 
 // pipes
 import { FilterTopicPipe } from './shared/filter-topic.pipe';
 import { SplitUnderscorePipe } from './shared/split-underscore.pipe';
 import { FilterColumnsPipe } from './shared/filter-columns.pipe';
 import { FilterSalmonPipe } from './shared/filter-salmon.pipe';
-import { LandingComponent } from './landing/landing.component';
-import { ArticleComponent } from './article/article.component';
-import { MultimediaComponent } from './multimedia/multimedia.component';
-import { SlideComponent } from './slide/slide.component';
-import { PodcastComponent } from './podcast/podcast.component';
 
 @NgModule({
   declarations: [
@@ -52,6 +54,7 @@ import { PodcastComponent } from './podcast/podcast.component';
     FilterColumnsPipe,
     FilterSalmonPipe,
     SlideComponent,
+    FishwatchComponent,
   ],
   imports: [
     BrowserModule,
@@ -65,7 +68,8 @@ import { PodcastComponent } from './podcast/podcast.component';
     ArticlesService,
     TopicsService,
     SalmonService,
-    PodcastsService
+    PodcastsService,
+    FishwatchService
     ],
   bootstrap: [AppComponent]
 })

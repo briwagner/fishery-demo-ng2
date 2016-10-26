@@ -1,0 +1,19 @@
+<div class="fishwatch-container">
+  <div class="col-md-8 col-md-offset-2">
+    <h2>Search for Fish Species</h2>
+
+    <div class="col-md-12">
+      <div class="col-md-6">
+        Search here
+        <h4>Most popular species</h4>
+        <ul>
+          <li *ngFor="let fav of favorites"><button (click)="requestThis(fav)" class="btn btn-default">{{fav}}</button></li>
+        </ul>
+      </div>
+      <div class="col-md-6">
+        Results here
+      </div>
+    </div>
+
+  </div>
+</div>
