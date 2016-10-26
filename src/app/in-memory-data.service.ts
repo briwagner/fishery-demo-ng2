@@ -209,7 +209,7 @@ In this podcast, the agency’s two top scientists on the West Coast discuss tho
         }
     ]}};
 
-      return {slides, articles, salmon, topics};
+      return {slides, articles, salmon, topics, podcasts};
     }
 
     parseUrl(url: string): ParsedUrl {
