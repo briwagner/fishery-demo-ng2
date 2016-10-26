@@ -1,4 +1,8 @@
-img {
+div.article-main {
+    margin-bottom:20px;
+}
+
+.article-main img {
     float: left;
     max-width: 50%;
     margin: 5px 20px 15px 5px;
@@ -15,4 +19,32 @@ img {
 
 p.dateline {
     margin:12px 0 5px;
+}
+
+.article-panel ul {
+    list-style-type: none;
+}
+
+.article-panel ul li {
+    display: inline-block;
+}
+
+.article-panel img {
+    height: 120px;
+    width: auto;
+}
+
+.article-panel h5 {
+    display:inline-block;
+    vertical-align: top;
+    height:62px;
+    background-color:black;
+    color:white;
+    cursor: pointer;
+    padding: 8px 5px;
+}
+
+.article-pane {
+    padding: 0 5px;
+    width:220px;
 }

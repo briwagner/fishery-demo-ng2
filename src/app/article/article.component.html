@@ -1,5 +1,5 @@
 <div class="col-md-12">
-  <div class="col-md-8 col-md-offset-2">
+  <div class="col-md-8 col-md-offset-2 article-main">
     <div class="row topic">
       <span class="badge">{{article?.topic}}</span>
     </div>
@@ -7,5 +7,18 @@
     <img src="/assets/{{article?.pic}}" alt="{{article?.title}}">
     <p class="dateline"><i>{{article?.date}} - </i></p>
     <p>{{article?.body}}</p>
+  </div>
+</div>
+
+<div class="col-md-12">
+  <div class="article-panel">
+    <ul>
+      <li *ngFor="let art of articles | slice:0:5">
+        <div class="article-pane">
+          <img src="/assets/{{art.pic}}" alt="{{art.title}}">
+          <h5 (click)="assignArticle(art)">{{art.title}}</h5>
+        </div>
+      </li>
+    </ul>
   </div>
 </div>

@@ -13,6 +13,8 @@ import { Article } from '../models/article';
 export class ArticleComponent implements OnInit {
 
   article: Article;
+  articles: Article[];
+  id: number;
 
   constructor(
     private router: Router,
@@ -22,7 +24,11 @@ export class ArticleComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.getArticle();
+    // this.getArticle();
+    this.route.params.subscribe( params => {
+      this.id = +params['id'] || -1 
+    });
+    this.getArticles(this.id);
   }
 
   getArticle() {
@@ -35,6 +41,21 @@ export class ArticleComponent implements OnInit {
                         //     () => console.log('complete article fetch')
                         // );
     });
+  }
+
+  getArticles(pathId) {
+    this.articlesservice.getArticles()
+                        .subscribe(
+                          p => {
+                            this.articles = p;
+                            if (pathId == -1) {
+                              this.assignArticle(p[0]);
+                            } else {
+                              this.assignArticle( this.articles.find( obj => obj.id == pathId) );
+                            }
+                        },
+                        e => console.log('error', e)
+                        );
   }
 
   assignArticle(art) {
