@@ -12,6 +12,10 @@ import { FishwatchService } from '../services/fishwatch.service';
 export class FishwatchComponent implements OnInit {
 
   favorites = ["Salmon", "Yellowtail", "Tuna"];
+  results;
+  emptySearch = true;
+  loading = false;
+  clean = true;
   
   constructor(
     private router: Router,
@@ -25,14 +29,25 @@ export class FishwatchComponent implements OnInit {
   }
 // 
   requestThis(query) {
+    this.clean = false;
+    this.loading = true;
     this.fishwatchservice.makeRequest(query)
                          .subscribe(
-                           p => console.log(p),
-                           e => console.log(e)
+                           p => this.results = p,
+                           e => console.log(e),
+                           () => {
+                             this.loading = false;
+                             this.verifyResults()
+                           }
                          );
   }
 
-  makeRequest() {
-   }
+  verifyResults() {
+    if (this.results.length < 1) {
+      this.emptySearch = true
+    } else {
+      this.emptySearch = false
+    }
+  }
 
 }

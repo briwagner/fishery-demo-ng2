@@ -20,7 +20,16 @@ export class FishwatchService {
   }
 
   convertRequest(response:Response) {
-    console.log(response);
+    let parser = new DOMParser();
+    let doc = parser.parseFromString(response.text(), "text/html" );
+    let profiles = doc.querySelector(".seafood-profiles")
+
+    if (profiles == null || profiles.children.length == 0) {
+      return [];
+    } else {
+      let items = grabFishProfiles(profiles);
+      return items;
+    }
   }
 
   getHeaders() {
@@ -29,4 +38,25 @@ export class FishwatchService {
     return headers;
   }
 
+}
+
+class Link {
+  link: string;
+  pic: string;
+  title: string;
+  aliases: string;
+}
+
+function grabFishProfiles(dom) {
+  let arr = [];
+  let items = dom.children;
+  for (var i = 0; i < items.length; i++) {
+    let fish = new Link;
+    fish.link = items[i].href;
+    fish.pic = items[i].children[0].children[0].src;
+    fish.title = items[i].children[1].innerHTML;
+    fish.aliases = items[i].children[2].innerHTML;
+    arr.push(fish);
+  }
+  return arr;
 }

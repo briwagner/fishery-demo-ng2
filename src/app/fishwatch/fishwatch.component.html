@@ -1,17 +1,43 @@
-<div class="fishwatch-container">
+<div class="row fishwatch-container">
   <div class="col-md-8 col-md-offset-2">
     <h2>Search for Fish Species</h2>
 
-    <div class="col-md-12">
-      <div class="col-md-6">
-        Search here
+    <div class="row col-md-12">
+      <div class="col-md-6 search-box">
+        <form>
+          <input #searchTerm searchTerm.value ="" type="text" placeholder="Salmon, e.g." class="form-control">
+          <input type="submit" class="form-control" value="Search" (click)="requestThis(searchTerm.value)">
+        </form>
         <h4>Most popular species</h4>
-        <ul>
-          <li *ngFor="let fav of favorites"><button (click)="requestThis(fav)" class="btn btn-default">{{fav}}</button></li>
+        <ul class="most-popular">
+          <li *ngFor="let fav of favorites">
+            <button (click)="requestThis(fav)" class="btn btn-default">{{fav}}</button>
+          </li>
         </ul>
       </div>
-      <div class="col-md-6">
-        Results here
+      <div class="col-md-6 search-results">
+        <h3>Results from Fishwatch.gov</h3>
+
+        <span *ngIf="clean"><p class="text-center">Search for a fish species</p></span>
+
+        <div *ngIf="loading" class="text-center">
+          <h4>Loading ...</h4>
+        </div>
+
+        <ul class="search-results-list" *ngIf="!emptySearch">
+          <li *ngFor="let re of results">
+            <div class="search-result-item text-center">
+              <a href="{{re.link}}" target="_blank">
+                <h4>{{re.title}}</h4>
+                <p>{{re.aliases}}</p>
+              <img src="{{re.pic}}" ></a>
+            </div>
+          </li>
+        </ul>
+
+        <div *ngIf="!clean && emptySearch">
+          <h5 class="text-center">No results. Please try a different search term</h5>
+        </div>
       </div>
     </div>
 
