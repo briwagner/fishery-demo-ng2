@@ -34,6 +34,7 @@ ul.most-popular {
     overflow-y: scroll;
     border: 1px solid #efefef;
     padding-left:10px;
+    border-radius: 0 0 5px 5px;
 }
 
 .search-results ul li {

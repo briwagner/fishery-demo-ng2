@@ -1,19 +1,21 @@
-<div class="col-md-8 col-md-offset-2">
-  <div class="col-md-12 multimedia">
-    <h2>Multimedia</h2>
+<div class="row">
+  <div class="col-md-8 col-md-offset-2">
+    <div class="col-md-12 multimedia">
+      <h2>Multimedia</h2>
 
-      <div class="col-md-4">
-        <img src="/assets/sandt.png" alt="Photos link">
-        <span>Photos</span>
-      </div>
-      <div class="col-md-4">
-        <img src="/assets/sealions.jpg" alt="Video link">
-        <span>Video</span>
-      </div>
-      <div class="col-md-4" *ngIf="podcast">
-        <img src="/assets/{{podcast?.pic}}" alt="{{podcast?.title}}">
-        <span><a [routerLink]="['/podcast']">Podcasts</a></span>
-      </div>
+        <div class="col-md-4">
+          <img src="/assets/sandt.png" alt="Photos link">
+          <span>Photos</span>
+        </div>
+        <div class="col-md-4">
+          <img src="/assets/sealions.jpg" alt="Video link">
+          <span>Video</span>
+        </div>
+        <div class="col-md-4" *ngIf="podcast">
+          <img src="/assets/{{podcast?.pic}}" alt="{{podcast?.title}}">
+          <span><a [routerLink]="['/podcast']">Podcasts</a></span>
+        </div>
 
+    </div>
   </div>
 </div>

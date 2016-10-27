@@ -1,45 +1,48 @@
-<div class="col-md-8 col-md-offset-2">
-    
-  <div class="feature">
-    <h2>Fisheries News</h2>
+<div class="row">
 
-    <div class="col-md-12" [hidden]="!filteringFor">
-      <button class="btn btn-xs btn-warning" (click)="clearFilter()">Clear filter</button>
-    </div>
+  <div class="col-md-8 col-md-offset-2">
+      
+    <div class="feature">
+      <h2>Fisheries News</h2>
 
-    <div *ngFor="let article of articles | filterTopic:filteringFor | slice:0:articleMax" class="article col-md-6">
-      <a href="article/{{article.id}}"><img src="/assets/{{article.pic}}" alt="{{article.title}}"></a>
-      <div class="topic-badge" (click)="filterFor(article.topic)">{{article.topic}}</div>
-
-      <div class="tease">
-        <a href="article/{{article.id}}">
-          <h4>{{article.title}}</h4>
-            <p>{{article.body | slice:0:60 }}</p>
-        </a>
+      <div class="col-md-12" [hidden]="!filteringFor">
+        <button class="btn btn-xs btn-warning" (click)="clearFilter()">Clear filter</button>
       </div>
-    </div>
 
-    <div *ngIf="moreArticlesToShow" class="col-md-12 center-block">
-      <button type="button" (click)="getMoreArticles()" class="btn btn-default btn-md center-block">More</button>
-    </div>
+      <div *ngFor="let article of articles | filterTopic:filteringFor | slice:0:articleMax" class="article col-md-6">
+        <a href="article/{{article.id}}"><img src="/assets/{{article.pic}}" alt="{{article.title}}"></a>
+        <div class="topic-badge" (click)="filterFor(article.topic)">{{article.topic}}</div>
 
-<!--doesn't work heere-->
-<!--(articles | filterTopic:filteringFor).length === 0-->
-
-    <div [hidden]="noArticles()" class="col-md-12">
-      <h4 class="text-center">No articles found for that topic.</h4>
-    </div>
-
-    <!--<div class="topic-pills col-md-12">
-      <div class="btn-group btn-group-xs">
-        <h5>Filter by Topic</h5>
-        <button *ngFor="let t of topics" (click)="filterFor(t.name)" class="btn btn-info">{{t.name}}</button>
-        <button type="button" (click)="clearFilter()" class="btn btn-default btn-warning">Clear</button>
+        <div class="tease">
+          <a href="article/{{article.id}}">
+            <h4>{{article.title}}</h4>
+              <p>{{article.body | slice:0:60 }}</p>
+          </a>
+        </div>
       </div>
-    </div>-->
 
-    <div class="spacer row"> </div>
-    
+      <div *ngIf="moreArticlesToShow" class="col-md-12 center-block">
+        <button type="button" (click)="getMoreArticles()" class="btn btn-default btn-md center-block">More</button>
+      </div>
+
+  <!--doesn't work heere-->
+  <!--(articles | filterTopic:filteringFor).length === 0-->
+
+      <div [hidden]="noArticles()" class="col-md-12">
+        <h4 class="text-center">No articles found for that topic.</h4>
+      </div>
+
+      <!--<div class="topic-pills col-md-12">
+        <div class="btn-group btn-group-xs">
+          <h5>Filter by Topic</h5>
+          <button *ngFor="let t of topics" (click)="filterFor(t.name)" class="btn btn-info">{{t.name}}</button>
+          <button type="button" (click)="clearFilter()" class="btn btn-default btn-warning">Clear</button>
+        </div>
+      </div>-->
+
+      <div class="spacer row"> </div>
+      
+    </div>
+
   </div>
-
 </div>
