@@ -24,7 +24,7 @@
           <h4>Loading ...</h4>
         </div>
 
-        <ul class="search-results-list" *ngIf="!emptySearch">
+        <ul class="search-results-list" *ngIf="!emptySearch && !loading">
           <li *ngFor="let re of results">
             <div class="search-result-item text-center">
               <a href="{{re.link}}" target="_blank">
@@ -35,7 +35,7 @@
           </li>
         </ul>
 
-        <div *ngIf="!clean && emptySearch">
+        <div *ngIf="!clean && emptySearch && !loading">
           <h5 class="text-center">No results. Please try a different search term</h5>
         </div>
       </div>
